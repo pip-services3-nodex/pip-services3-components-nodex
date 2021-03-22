@@ -1,6 +1,6 @@
 {
     "name": "pip-services3-components-nodex",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": "Conceptual Vision Consulting LLC",
     "description": "Component definitions for Pip.Services in Node.js / ES2017",
     "contributors": [
@@ -24,7 +24,7 @@
     },
     "license": "MIT",
     "engines": {
-        "node": ">=0.6.14"
+        "node": ">=14.0.0"
     },
     "private": false,
     "scripts": {
