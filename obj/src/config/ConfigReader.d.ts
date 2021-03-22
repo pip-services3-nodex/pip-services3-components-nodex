@@ -1,3 +1,4 @@
+/** @module config */
 import { ConfigParams } from 'pip-services3-commons-nodex';
 import { IConfigurable } from 'pip-services3-commons-nodex';
 /**

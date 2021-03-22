@@ -1,6 +1,6 @@
 {
     "name": "pip-services3-components-nodex",
     "registry": "pipdevs",
-    "version": "3.0.8",
+    "version": "1.0.1",
     "build": "0"
 }

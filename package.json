@@ -1,6 +1,6 @@
 {
     "name": "pip-services3-components-nodex",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Conceptual Vision Consulting LLC",
     "description": "Component definitions for Pip.Services in Node.js / ES2017",
     "contributors": [
@@ -34,9 +34,9 @@
         "retest": "tsc && mocha -t 10000 -R spec -u tdd --recursive ./obj/test"
     },
     "dependencies": {
-        "handlebars": "^4.7.7",
         "js-yaml": "^4.0.0",
-        "pip-services3-commons-nodex": "^1.0.0"
+        "pip-services3-commons-nodex": "^1.0.0",
+        "pip-services3-expressions-nodex": "^1.0.2"
     },
     "devDependencies": {
         "@types/chai": "^4.0.0",

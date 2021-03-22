@@ -1,9 +1,7 @@
 /** @module config */
-/** @hidden */ 
-let handlebars = require('handlebars');
-
 import { ConfigParams } from 'pip-services3-commons-nodex';
 import { IReconfigurable } from 'pip-services3-commons-nodex';
+import { MustacheTemplate } from 'pip-services3-expressions-nodex';
 
 import { IConfigReader } from './IConfigReader';
 
@@ -66,8 +64,8 @@ export class MemoryConfigReader implements IConfigReader, IReconfigurable {
     public async readConfig(correlationId: string, parameters: ConfigParams): Promise<ConfigParams> {
         if (parameters != null) {
             let config = new ConfigParams(this._config).toString();
-            let template = handlebars.compile(config);
-            config = template(parameters);
+            let template = new MustacheTemplate(config);
+            config = template.evaluateWithVariables(parameters);
             return ConfigParams.fromString(config);
         } else {
             let config = new ConfigParams(this._config);;

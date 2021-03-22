@@ -2,9 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfigReader = void 0;
 /** @module config */
-/** @hidden */
-const handlebars = require('handlebars');
 const pip_services3_commons_nodex_1 = require("pip-services3-commons-nodex");
+const pip_services3_expressions_nodex_1 = require("pip-services3-expressions-nodex");
 /**
  * Abstract config reader that supports configuration parameterization.
  *
@@ -44,13 +43,8 @@ class ConfigReader {
      */
     parameterize(config, parameters) {
         parameters = this._parameters.override(parameters);
-        // Convert template to lodash
-        //config = config.replace(/{{/g, "<%=").replace(/}}/g, "%>");
-        //let template = _.template(config);
-        //return template(parameters);
-        // return mustache.render(config, parameters);
-        let template = handlebars.compile(config);
-        return template(parameters);
+        let template = new pip_services3_expressions_nodex_1.MustacheTemplate(config);
+        return template.evaluateWithVariables(parameters);
     }
 }
 exports.ConfigReader = ConfigReader;

@@ -1,3 +1,4 @@
+/** @module config */
 import { ConfigParams } from 'pip-services3-commons-nodex';
 import { IReconfigurable } from 'pip-services3-commons-nodex';
 import { IConfigReader } from './IConfigReader';

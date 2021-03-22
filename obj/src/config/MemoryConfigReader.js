@@ -11,9 +11,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MemoryConfigReader = void 0;
 /** @module config */
-/** @hidden */
-let handlebars = require('handlebars');
 const pip_services3_commons_nodex_1 = require("pip-services3-commons-nodex");
+const pip_services3_expressions_nodex_1 = require("pip-services3-expressions-nodex");
 /**
  * Config reader that stores configuration in memory.
  *
@@ -71,8 +70,8 @@ class MemoryConfigReader {
         return __awaiter(this, void 0, void 0, function* () {
             if (parameters != null) {
                 let config = new pip_services3_commons_nodex_1.ConfigParams(this._config).toString();
-                let template = handlebars.compile(config);
-                config = template(parameters);
+                let template = new pip_services3_expressions_nodex_1.MustacheTemplate(config);
+                config = template.evaluateWithVariables(parameters);
                 return pip_services3_commons_nodex_1.ConfigParams.fromString(config);
             }
             else {
