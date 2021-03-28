@@ -145,7 +145,9 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.connectionparams.html#getdiscoverykey" class="tsd-kind-icon">get<wbr>Discovery<wbr>Key</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.connectionparams.html#gethost" class="tsd-kind-icon">get<wbr>Host</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.connectionparams.html#getport" class="tsd-kind-icon">get<wbr>Port</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.connectionparams.html#getportwithdefault" class="tsd-kind-icon">get<wbr>Port<wbr>With<wbr>Default</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.connectionparams.html#getprotocol" class="tsd-kind-icon">get<wbr>Protocol</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.connectionparams.html#getprotocolwithdefault" class="tsd-kind-icon">get<wbr>Protocol<wbr>With<wbr>Default</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.connectionparams.html#geturi" class="tsd-kind-icon">get<wbr>Uri</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.connectionparams.html#setdiscoverykey" class="tsd-kind-icon">set<wbr>Discovery<wbr>Key</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="connect.connectionparams.html#sethost" class="tsd-kind-icon">set<wbr>Host</a></li>
@@ -239,7 +241,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/ConnectionParams.ts:108</li>
+									<li>Defined in connect/ConnectionParams.ts:117</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -262,7 +264,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/ConnectionParams.ts:128</li>
+									<li>Defined in connect/ConnectionParams.ts:137</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -276,16 +278,48 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getprotocol" class="tsd-anchor"></a>
-					<h3>get<wbr>Protocol</h3>
+					<a name="getportwithdefault" class="tsd-anchor"></a>
+					<h3>get<wbr>Port<wbr>With<wbr>Default</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Protocol<span class="tsd-signature-symbol">(</span>defaultValue<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Port<wbr>With<wbr>Default<span class="tsd-signature-symbol">(</span>defaultPort<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/ConnectionParams.ts:90</li>
+									<li>Defined in connect/ConnectionParams.ts:147</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the port number with default value.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>defaultPort: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a default port number.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the port number.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getprotocol" class="tsd-anchor"></a>
+					<h3>get<wbr>Protocol</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Protocol<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in connect/ConnectionParams.ts:89</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -293,10 +327,33 @@
 									<p>Gets the connection protocol.</p>
 								</div>
 							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>the connection protocol or the default value if it&#39;s not set.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getprotocolwithdefault" class="tsd-anchor"></a>
+					<h3>get<wbr>Protocol<wbr>With<wbr>Default</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Protocol<wbr>With<wbr>Default<span class="tsd-signature-symbol">(</span>defaultValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in connect/ConnectionParams.ts:99</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the connection protocol with default value.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> defaultValue: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<h5>defaultValue: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>(optional) the default protocol</p>
 									</div>
@@ -317,7 +374,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/ConnectionParams.ts:149</li>
+									<li>Defined in connect/ConnectionParams.ts:168</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -372,7 +429,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/ConnectionParams.ts:119</li>
+									<li>Defined in connect/ConnectionParams.ts:128</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -403,7 +460,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/ConnectionParams.ts:139</li>
+									<li>Defined in connect/ConnectionParams.ts:158</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -439,7 +496,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/ConnectionParams.ts:99</li>
+									<li>Defined in connect/ConnectionParams.ts:108</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -470,7 +527,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/ConnectionParams.ts:158</li>
+									<li>Defined in connect/ConnectionParams.ts:177</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -530,7 +587,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/ConnectionParams.ts:226</li>
+									<li>Defined in connect/ConnectionParams.ts:245</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -569,7 +626,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/ConnectionParams.ts:171</li>
+									<li>Defined in connect/ConnectionParams.ts:190</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -607,7 +664,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/ConnectionParams.ts:183</li>
+									<li>Defined in connect/ConnectionParams.ts:202</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -640,7 +697,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in connect/ConnectionParams.ts:196</li>
+									<li>Defined in connect/ConnectionParams.ts:215</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -712,6 +769,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="connect.compositeconnectionresolver.html" class="tsd-kind-icon">Composite<wbr>Connection<wbr>Resolver</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
@@ -730,7 +790,13 @@
 								<a href="connect.connectionparams.html#getport" class="tsd-kind-icon">get<wbr>Port</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="connect.connectionparams.html#getportwithdefault" class="tsd-kind-icon">get<wbr>Port<wbr>With<wbr>Default</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="connect.connectionparams.html#getprotocol" class="tsd-kind-icon">get<wbr>Protocol</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="connect.connectionparams.html#getprotocolwithdefault" class="tsd-kind-icon">get<wbr>Protocol<wbr>With<wbr>Default</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="connect.connectionparams.html#geturi" class="tsd-kind-icon">get<wbr>Uri</a>
@@ -771,6 +837,9 @@
 				<ul class="after-current">
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="connect.connectionresolver.html" class="tsd-kind-icon">Connection<wbr>Resolver</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="connect.connectionutils.html" class="tsd-kind-icon">Connection<wbr>Utils</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="connect.defaultdiscoveryfactory.html" class="tsd-kind-icon">Default<wbr>Discovery<wbr>Factory</a>

@@ -69,10 +69,16 @@ export declare class ConnectionParams extends ConfigParams {
     /**
      * Gets the connection protocol.
      *
+     * @returns             the connection protocol or the default value if it's not set.
+     */
+    getProtocol(): string;
+    /**
+     * Gets the connection protocol with default value.
+     *
      * @param defaultValue  (optional) the default protocol
      * @returns             the connection protocol or the default value if it's not set.
      */
-    getProtocol(defaultValue?: string): string;
+    getProtocolWithDefault(defaultValue: string): string;
     /**
      * Sets the connection protocol.
      *
@@ -97,6 +103,13 @@ export declare class ConnectionParams extends ConfigParams {
      * @returns the port number.
      */
     getPort(): number;
+    /**
+     * Gets the port number with default value.
+     *
+     * @param defaultPort a default port number.
+     * @returns the port number.
+     */
+    getPortWithDefault(defaultPort: number): number;
     /**
      * Sets the port number.
      *

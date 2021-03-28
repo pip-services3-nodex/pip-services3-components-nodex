@@ -84,10 +84,19 @@ export class ConnectionParams extends ConfigParams {
     /**
      * Gets the connection protocol.
      * 
+     * @returns             the connection protocol or the default value if it's not set.
+     */
+    public getProtocol(): string {
+        return super.getAsString("protocol");
+    }
+
+    /**
+     * Gets the connection protocol with default value.
+     * 
      * @param defaultValue  (optional) the default protocol
      * @returns             the connection protocol or the default value if it's not set.
      */
-    public getProtocol(defaultValue: string = null): string {
+    public getProtocolWithDefault(defaultValue: string): string {
         return super.getAsStringWithDefault("protocol", defaultValue);
     }
 
@@ -127,6 +136,16 @@ export class ConnectionParams extends ConfigParams {
      */
     public getPort(): number {
         return super.getAsInteger("port");
+    }
+
+    /**
+     * Gets the port number with default value.
+     * 
+     * @param defaultPort a default port number.
+     * @returns the port number.
+     */
+    public getPortWithDefault(defaultPort: number): number {
+        return super.getAsIntegerWithDefault("port", defaultPort);
     }
 
     /**

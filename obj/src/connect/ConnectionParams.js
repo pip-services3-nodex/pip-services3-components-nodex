@@ -81,10 +81,18 @@ class ConnectionParams extends pip_services3_commons_nodex_1.ConfigParams {
     /**
      * Gets the connection protocol.
      *
+     * @returns             the connection protocol or the default value if it's not set.
+     */
+    getProtocol() {
+        return super.getAsString("protocol");
+    }
+    /**
+     * Gets the connection protocol with default value.
+     *
      * @param defaultValue  (optional) the default protocol
      * @returns             the connection protocol or the default value if it's not set.
      */
-    getProtocol(defaultValue = null) {
+    getProtocolWithDefault(defaultValue) {
         return super.getAsStringWithDefault("protocol", defaultValue);
     }
     /**
@@ -120,6 +128,15 @@ class ConnectionParams extends pip_services3_commons_nodex_1.ConfigParams {
      */
     getPort() {
         return super.getAsInteger("port");
+    }
+    /**
+     * Gets the port number with default value.
+     *
+     * @param defaultPort a default port number.
+     * @returns the port number.
+     */
+    getPortWithDefault(defaultPort) {
+        return super.getAsIntegerWithDefault("port", defaultPort);
     }
     /**
      * Sets the port number.

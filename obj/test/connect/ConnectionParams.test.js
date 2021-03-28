@@ -15,8 +15,8 @@ suite('ConnectionParams', () => {
         let connection = new ConnectionParams_1.ConnectionParams();
         connection.setProtocol(null);
         assert.isNull(connection.getProtocol());
-        assert.isNull(connection.getProtocol(null));
-        assert.equal(connection.getProtocol("https"), "https");
+        assert.isNull(connection.getProtocol());
+        assert.equal(connection.getProtocolWithDefault("https"), "https");
         connection.setProtocol("https");
         assert.equal(connection.getProtocol(), "https");
     });

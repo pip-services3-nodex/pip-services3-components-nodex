@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DefaultDiscoveryFactory = exports.MemoryDiscovery = exports.ConnectionResolver = exports.ConnectionParams = void 0;
+exports.ConnectionUtils = exports.CompositeConnectionResolver = exports.DefaultDiscoveryFactory = exports.MemoryDiscovery = exports.ConnectionResolver = exports.ConnectionParams = void 0;
 /**
  * @module connect
  *
@@ -49,4 +49,8 @@ var MemoryDiscovery_1 = require("./MemoryDiscovery");
 Object.defineProperty(exports, "MemoryDiscovery", { enumerable: true, get: function () { return MemoryDiscovery_1.MemoryDiscovery; } });
 var DefaultDiscoveryFactory_1 = require("./DefaultDiscoveryFactory");
 Object.defineProperty(exports, "DefaultDiscoveryFactory", { enumerable: true, get: function () { return DefaultDiscoveryFactory_1.DefaultDiscoveryFactory; } });
+var CompositeConnectionResolver_1 = require("./CompositeConnectionResolver");
+Object.defineProperty(exports, "CompositeConnectionResolver", { enumerable: true, get: function () { return CompositeConnectionResolver_1.CompositeConnectionResolver; } });
+var ConnectionUtils_1 = require("./ConnectionUtils");
+Object.defineProperty(exports, "ConnectionUtils", { enumerable: true, get: function () { return ConnectionUtils_1.ConnectionUtils; } });
 //# sourceMappingURL=index.js.map

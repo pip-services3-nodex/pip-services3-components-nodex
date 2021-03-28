@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>DefaultDiscoveryFactory | pip-services3-components-nodex</title>
+	<title>ConnectionUtils | pip-services3-components-nodex</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,10 +57,10 @@
 					<a href="../modules/connect.html">connect</a>
 				</li>
 				<li>
-					<a href="connect.defaultdiscoveryfactory.html">DefaultDiscoveryFactory</a>
+					<a href="connect.connectionutils.html">ConnectionUtils</a>
 				</li>
 			</ul>
-			<h1>Class DefaultDiscoveryFactory</h1>
+			<h1>Class ConnectionUtils</h1>
 		</div>
 	</div>
 </header>
@@ -70,38 +70,16 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Creates <a href="https://pip-services3-nodex.github.io/pip-services3-components-nodex/interfaces/connect.idiscovery.html" class="external">IDiscovery</a> components by their descriptors.</p>
+						<p>A set of utility functions to process connection parameters</p>
 					</div>
-					<dl class="tsd-comment-tags">
-						<dt>see</dt>
-						<dd><p><a href="build.factory.html">Factory</a></p>
-						</dd>
-						<dt>see</dt>
-						<dd><p><a href="../interfaces/connect.idiscovery.html">IDiscovery</a></p>
-						</dd>
-						<dt>see</dt>
-						<dd><p><a href="connect.memorydiscovery.html">MemoryDiscovery</a></p>
-						</dd>
-					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="build.factory.html" class="tsd-signature-type">Factory</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">DefaultDiscoveryFactory</span>
-							</li>
-						</ul>
+						<span class="target">ConnectionUtils</span>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implements</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/build.ifactory.html" class="tsd-signature-type">IFactory</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -109,217 +87,228 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="connect.defaultdiscoveryfactory.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="connect.defaultdiscoveryfactory.html#cancreate" class="tsd-kind-icon">can<wbr>Create</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="connect.defaultdiscoveryfactory.html#create" class="tsd-kind-icon">create</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="connect.defaultdiscoveryfactory.html#register" class="tsd-kind-icon">register</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="connect.defaultdiscoveryfactory.html#registerastype" class="tsd-kind-icon">register<wbr>AsType</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="connect.connectionutils.html#composeuri" class="tsd-kind-icon">compose<wbr>Uri</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="connect.connectionutils.html#concat" class="tsd-kind-icon">concat</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="connect.connectionutils.html#exclude" class="tsd-kind-icon">exclude</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="connect.connectionutils.html#include" class="tsd-kind-icon">include</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="connect.connectionutils.html#parseuri" class="tsd-kind-icon">parse<wbr>Uri</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Default<wbr>Discovery<wbr>Factory<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="connect.defaultdiscoveryfactory.html" class="tsd-signature-type">DefaultDiscoveryFactory</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in connect/DefaultDiscoveryFactory.ts:15</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Create a new instance of the factory.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <a href="connect.defaultdiscoveryfactory.html" class="tsd-signature-type">DefaultDiscoveryFactory</a></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="cancreate" class="tsd-anchor"></a>
-					<h3>can<wbr>Create</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">can<wbr>Create<span class="tsd-signature-symbol">(</span>locator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="composeuri" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> compose<wbr>Uri</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">compose<wbr>Uri<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConfigParams</span>, defaultProtocol<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, defaultPort<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/build.ifactory.html">IFactory</a>.<a href="../interfaces/build.ifactory.html#cancreate">canCreate</a></p>
-								<p>Inherited from <a href="build.factory.html">Factory</a>.<a href="build.factory.html#cancreate">canCreate</a></p>
 								<ul>
-									<li>Defined in build/Factory.ts:87</li>
+									<li>Defined in connect/ConnectionUtils.ts:132</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks if this factory is able to create component by given locator.</p>
+									<p>Composes URI from config parameters.
+										The result URI will be in the following form:
+									protocol://username@password@host1:port1,host2:port2,...?param1=abc&amp;param2=xyz&amp;...</p>
 								</div>
-								<p>This method searches for all registered components and returns
-									a locator for component it is able to create that matches the given locator.
-								If the factory is not able to create a requested component is returns null.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>locator: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">ConfigParams</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a locator to identify component to be created.</p>
+										<p>configuration parameters</p>
+									</div>
+								</li>
+								<li>
+									<h5>defaultProtocol: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a default protocol</p>
+									</div>
+								</li>
+								<li>
+									<h5>defaultPort: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a default port</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>a locator for a component that the factory is able to create.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>a composed URI</p>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="create" class="tsd-anchor"></a>
-					<h3>create</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>locator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="concat" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> concat</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">concat<span class="tsd-signature-symbol">(</span>options1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConfigParams</span>, options2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConfigParams</span>, <span class="tsd-signature-symbol">...</span>keys<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConfigParams</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/build.ifactory.html">IFactory</a>.<a href="../interfaces/build.ifactory.html#create">create</a></p>
-								<p>Inherited from <a href="build.factory.html">Factory</a>.<a href="build.factory.html#create">create</a></p>
 								<ul>
-									<li>Defined in build/Factory.ts:105</li>
+									<li>Defined in connect/ConnectionUtils.ts:17</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a component identified by given locator.</p>
+									<p>Concatinates two options by combining duplicated properties into comma-separated list</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>a CreateException if the factory is not able to create the component.</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>locator: <span class="tsd-signature-type">any</span></h5>
+									<h5>options1: <span class="tsd-signature-type">ConfigParams</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a locator to identify component to be created.</p>
+										<p>first options to merge</p>
+									</div>
+								</li>
+								<li>
+									<h5>options2: <span class="tsd-signature-type">ConfigParams</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>second options to merge</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>keys: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>when define it limits only to specific keys</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the created component.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ConfigParams</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="register" class="tsd-anchor"></a>
-					<h3>register</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span>locator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, factory<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="exclude" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> exclude</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">exclude<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConfigParams</span>, <span class="tsd-signature-symbol">...</span>keys<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConfigParams</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="build.factory.html">Factory</a>.<a href="build.factory.html#register">register</a></p>
 								<ul>
-									<li>Defined in build/Factory.ts:43</li>
+									<li>Defined in connect/ConnectionUtils.ts:221</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Registers a component using a factory method.</p>
+									<p>Excludes specified keys from the config parameters.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>locator: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">ConfigParams</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a locator to identify component to be created.</p>
+										<p>configuration parameters to be processed.</p>
 									</div>
 								</li>
 								<li>
-									<h5>factory: <span class="tsd-signature-type">function</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>keys: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a factory function that receives a locator and returns a created component.</p>
+										<p>a list of keys to be excluded.</p>
 									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>locator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>locator: <span class="tsd-signature-type">any</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ConfigParams</span></h4>
+							<p>a processed config parameters.</p>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="registerastype" class="tsd-anchor"></a>
-					<h3>register<wbr>AsType</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">register<wbr>AsType<span class="tsd-signature-symbol">(</span>locator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="include" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> include</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">include<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConfigParams</span>, <span class="tsd-signature-symbol">...</span>keys<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConfigParams</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="build.factory.html">Factory</a>.<a href="build.factory.html#registerastype">registerAsType</a></p>
 								<ul>
-									<li>Defined in build/Factory.ts:63</li>
+									<li>Defined in connect/ConnectionUtils.ts:201</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Registers a component using its type (a constructor function).</p>
+									<p>Includes specified keys from the config parameters.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>locator: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">ConfigParams</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a locator to identify component to be created.</p>
+										<p>configuration parameters to be processed.</p>
 									</div>
 								</li>
 								<li>
-									<h5>type: <span class="tsd-signature-type">any</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>keys: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a component type.</p>
+										<p>a list of keys to be included.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ConfigParams</span></h4>
+							<p>a processed config parameters.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="parseuri" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> parse<wbr>Uri</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Uri<span class="tsd-signature-symbol">(</span>uri<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, defaultProtocol<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, defaultPort<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConfigParams</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in connect/ConnectionUtils.ts:52</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Parses URI into config parameters.
+										The URI shall be in the following form:
+									protocol://username@password@host1:port1,host2:port2,...?param1=abc&amp;param2=xyz&amp;...</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>uri: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the URI to be parsed</p>
+									</div>
+								</li>
+								<li>
+									<h5>defaultProtocol: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a default protocol</p>
+									</div>
+								</li>
+								<li>
+									<h5>defaultPort: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a default port</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ConfigParams</span></h4>
+							<p>a configuration parameters with URI elements</p>
 						</li>
 					</ul>
 				</section>
@@ -380,33 +369,33 @@
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="connect.connectionresolver.html" class="tsd-kind-icon">Connection<wbr>Resolver</a>
 					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="connect.connectionutils.html" class="tsd-kind-icon">Connection<wbr>Utils</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="connect.defaultdiscoveryfactory.html" class="tsd-kind-icon">Default<wbr>Discovery<wbr>Factory</a>
+						<a href="connect.connectionutils.html" class="tsd-kind-icon">Connection<wbr>Utils</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="connect.defaultdiscoveryfactory.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="connect.connectionutils.html#composeuri" class="tsd-kind-icon">compose<wbr>Uri</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="connect.defaultdiscoveryfactory.html#cancreate" class="tsd-kind-icon">can<wbr>Create</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="connect.connectionutils.html#concat" class="tsd-kind-icon">concat</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="connect.defaultdiscoveryfactory.html#create" class="tsd-kind-icon">create</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="connect.connectionutils.html#exclude" class="tsd-kind-icon">exclude</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="connect.defaultdiscoveryfactory.html#register" class="tsd-kind-icon">register</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="connect.connectionutils.html#include" class="tsd-kind-icon">include</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="connect.defaultdiscoveryfactory.html#registerastype" class="tsd-kind-icon">register<wbr>AsType</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="connect.connectionutils.html#parseuri" class="tsd-kind-icon">parse<wbr>Uri</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="connect.defaultdiscoveryfactory.html" class="tsd-kind-icon">Default<wbr>Discovery<wbr>Factory</a>
+					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="connect.discoveryitem.html" class="tsd-kind-icon">Discovery<wbr>Item</a>
 					</li>
