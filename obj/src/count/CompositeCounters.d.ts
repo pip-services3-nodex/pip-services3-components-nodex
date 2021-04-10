@@ -2,8 +2,8 @@
 import { IReferenceable } from 'pip-services3-commons-nodex';
 import { IReferences } from 'pip-services3-commons-nodex';
 import { ICounters } from './ICounters';
-import { Timing } from './Timing';
-import { ITimingCallback } from './ITimingCallback';
+import { CounterTiming } from './CounterTiming';
+import { ICounterTimingCallback } from './ICounterTimingCallback';
 /**
  * Aggregates all counters from component references under a single component.
  *
@@ -37,7 +37,7 @@ import { ITimingCallback } from './ITimingCallback';
  *     }
  *
  */
-export declare class CompositeCounters implements ICounters, ITimingCallback, IReferenceable {
+export declare class CompositeCounters implements ICounters, ICounterTimingCallback, IReferenceable {
     protected readonly _counters: ICounters[];
     /**
      * Creates a new instance of the counters.
@@ -53,20 +53,20 @@ export declare class CompositeCounters implements ICounters, ITimingCallback, IR
     setReferences(references: IReferences): void;
     /**
      * Begins measurement of execution time interval.
-     * It returns [[Timing]] object which has to be called at
-     * [[Timing.endTiming]] to end the measurement and update the counter.
+     * It returns [[CounterTiming]] object which has to be called at
+     * [[CounterTiming.endTiming]] to end the measurement and update the counter.
      *
      * @param name 	a counter name of Interval type.
-     * @returns a [[Timing]] callback object to end timing.
+     * @returns a [[CounterTiming]] callback object to end timing.
      */
-    beginTiming(name: string): Timing;
+    beginTiming(name: string): CounterTiming;
     /**
      * Ends measurement of execution elapsed time and updates specified counter.
      *
      * @param name      a counter name
      * @param elapsed   execution elapsed time in milliseconds to update the counter.
      *
-     * @see [[Timing.endTiming]]
+     * @see [[CounterTiming.endTiming]]
      */
     endTiming(name: string, elapsed: number): void;
     /**

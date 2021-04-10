@@ -8,5 +8,6 @@ export * from './count';
 export * from './lock';
 export * from './log';
 export * from './info';
+export * from './trace';
 export * from './test';
 export { Component } from './Component';

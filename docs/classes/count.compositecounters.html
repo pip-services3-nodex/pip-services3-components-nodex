@@ -115,7 +115,7 @@
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
 					<li><a href="../interfaces/count.icounters.html" class="tsd-signature-type">ICounters</a></li>
-					<li><a href="../interfaces/count.itimingcallback.html" class="tsd-signature-type">ITimingCallback</a></li>
+					<li><a href="../interfaces/count.icountertimingcallback.html" class="tsd-signature-type">ICounterTimingCallback</a></li>
 					<li><span class="tsd-signature-type">any</span></li>
 				</ul>
 			</section>
@@ -197,7 +197,7 @@
 					<a name="begintiming" class="tsd-anchor"></a>
 					<h3>begin<wbr>Timing</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">begin<wbr>Timing<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="count.timing.html" class="tsd-signature-type">Timing</a></li>
+						<li class="tsd-signature tsd-kind-icon">begin<wbr>Timing<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="count.countertiming.html" class="tsd-signature-type">CounterTiming</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -210,8 +210,8 @@
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Begins measurement of execution time interval.
-										It returns <a href="count.timing.html">Timing</a> object which has to be called at
-									<a href="count.timing.html#endtiming">Timing.endTiming</a> to end the measurement and update the counter.</p>
+										It returns <a href="count.countertiming.html">CounterTiming</a> object which has to be called at
+									<a href="count.countertiming.html#endtiming">CounterTiming.endTiming</a> to end the measurement and update the counter.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -223,8 +223,8 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="count.timing.html" class="tsd-signature-type">Timing</a></h4>
-							<p>a <a href="count.timing.html">Timing</a> callback object to end timing.</p>
+							<h4 class="tsd-returns-title">Returns <a href="count.countertiming.html" class="tsd-signature-type">CounterTiming</a></h4>
+							<p>a <a href="count.countertiming.html">CounterTiming</a> callback object to end timing.</p>
 						</li>
 					</ul>
 				</section>
@@ -237,7 +237,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/count.itimingcallback.html">ITimingCallback</a>.<a href="../interfaces/count.itimingcallback.html#endtiming">endTiming</a></p>
+								<p>Implementation of <a href="../interfaces/count.icountertimingcallback.html">ICounterTimingCallback</a>.<a href="../interfaces/count.icountertimingcallback.html#endtiming">endTiming</a></p>
 								<ul>
 									<li>Defined in count/CompositeCounters.ts:93</li>
 								</ul>
@@ -248,7 +248,7 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
-									<dd><p><a href="count.timing.html#endtiming">Timing.endTiming</a></p>
+									<dd><p><a href="count.countertiming.html#endtiming">CounterTiming.endTiming</a></p>
 									</dd>
 								</dl>
 							</div>
@@ -564,6 +564,9 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/test.html">test</a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/trace.html">trace</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
@@ -620,6 +623,9 @@
 						<a href="count.counter.html" class="tsd-kind-icon">Counter</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="count.countertiming.html" class="tsd-kind-icon">Counter<wbr>Timing</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="count.defaultcountersfactory.html" class="tsd-kind-icon">Default<wbr>Counters<wbr>Factory</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
@@ -628,14 +634,11 @@
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="count.nullcounters.html" class="tsd-kind-icon">Null<wbr>Counters</a>
 					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="count.timing.html" class="tsd-kind-icon">Timing</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/count.icountertimingcallback.html" class="tsd-kind-icon">ICounter<wbr>Timing<wbr>Callback</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="../interfaces/count.icounters.html" class="tsd-kind-icon">ICounters</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/count.itimingcallback.html" class="tsd-kind-icon">ITiming<wbr>Callback</a>
 					</li>
 				</ul>
 			</nav>

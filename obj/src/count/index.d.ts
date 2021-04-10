@@ -8,8 +8,8 @@
  * like: times called, response time, objects saved/processed. Using these numbers, we can
  * show how the code works in the system – how stable, fast, expandable it is.
  */
-export { Timing } from './Timing';
-export { ITimingCallback } from './ITimingCallback';
+export { CounterTiming } from './CounterTiming';
+export { ICounterTimingCallback } from './ICounterTimingCallback';
 export { ICounters } from './ICounters';
 export { CachedCounters } from './CachedCounters';
 export { NullCounters } from './NullCounters';

@@ -1,6 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Timing = void 0;
+/** @module count */
+import { ICounterTimingCallback } from './ICounterTimingCallback';
 /**
  * Callback object returned by {@link ICounters.beginTiming} to end timing
  * of execution block and update the associated counter.
@@ -15,28 +14,20 @@ exports.Timing = void 0;
  *     }
  *
  */
-class Timing {
+export declare class CounterTiming {
+    private _start;
+    private _callback;
+    private _counter;
     /**
      * Creates a new instance of the timing callback object.
      *
      * @param counter 		an associated counter name
      * @param callback 		a callback that shall be called when endTiming is called.
      */
-    constructor(counter = null, callback = null) {
-        this._counter = counter;
-        this._callback = callback;
-        this._start = new Date().getTime();
-    }
+    constructor(counter?: string, callback?: ICounterTimingCallback);
     /**
      * Ends timing of an execution block, calculates elapsed time
      * and updates the associated counter.
      */
-    endTiming() {
-        if (this._callback != null) {
-            let elapsed = new Date().getTime() - this._start;
-            this._callback.endTiming(this._counter, elapsed);
-        }
-    }
+    endTiming(): void;
 }
-exports.Timing = Timing;
-//# sourceMappingURL=Timing.js.map

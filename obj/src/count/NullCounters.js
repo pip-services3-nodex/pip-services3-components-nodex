@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NullCounters = void 0;
 /** @module count */
-const Timing_1 = require("./Timing");
+const CounterTiming_1 = require("./CounterTiming");
 /**
  * Dummy implementation of performance counters that doesn't do anything.
  *
@@ -18,14 +18,14 @@ class NullCounters {
     NullCounters() { }
     /**
      * Begins measurement of execution time interval.
-     * It returns [[Timing]] object which has to be called at
-     * [[Timing.endTiming]] to end the measurement and update the counter.
+     * It returns [[CounterTiming]] object which has to be called at
+     * [[CounterTiming.endTiming]] to end the measurement and update the counter.
      *
      * @param name 	a counter name of Interval type.
-     * @returns a [[Timing]] callback object to end timing.
+     * @returns a [[CounterTiming]] callback object to end timing.
      */
     beginTiming(name) {
-        return new Timing_1.Timing();
+        return new CounterTiming_1.CounterTiming();
     }
     /**
      * Calculates min/average/max statistics based on the current and previous values.

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Timing | pip-services3-components-nodex</title>
+	<title>TraceTiming | pip-services3-components-nodex</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,13 +54,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/count.html">count</a>
+					<a href="../modules/trace.html">trace</a>
 				</li>
 				<li>
-					<a href="count.timing.html">Timing</a>
+					<a href="trace.tracetiming.html">TraceTiming</a>
 				</li>
 			</ul>
-			<h1>Class Timing</h1>
+			<h1>Class TraceTiming</h1>
 		</div>
 	</div>
 </header>
@@ -70,15 +70,16 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Callback object returned by <a href="../interfaces/count.icounters.html#begintiming">ICounters.beginTiming</a> to end timing
-						of execution block and update the associated counter.</p>
+						<p>Timing object returned by <a href="../interfaces/trace.itracer.html#begintrace">ITracer.beginTrace</a> to end timing
+						of execution block and record the associated trace.</p>
 					</div>
 					<h3 id="example">Example</h3>
-					<pre><code><span class="hljs-keyword">let</span> timing = counters.beginTiming(<span class="hljs-string">"mymethod.exec_time"</span>);
+					<pre><code><span class="hljs-keyword">let</span> timing = tracer.beginTrace(<span class="hljs-string">"mymethod.exec_time"</span>);
 <span class="hljs-keyword">try</span> {
     ...
-} finally {
-    timing.endTiming();
+    timing.endTrace();
+} <span class="hljs-keyword">catch</span> (err) {
+    timing.endFailure(err);
 }
 </code></pre>
 				</div>
@@ -87,7 +88,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Timing</span>
+						<span class="target">TraceTiming</span>
 					</li>
 				</ul>
 			</section>
@@ -98,13 +99,14 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="count.timing.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="trace.tracetiming.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="count.timing.html#endtiming" class="tsd-kind-icon">end<wbr>Timing</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="trace.tracetiming.html#endfailure" class="tsd-kind-icon">end<wbr>Failure</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="trace.tracetiming.html#endtrace" class="tsd-kind-icon">end<wbr>Trace</a></li>
 							</ul>
 						</section>
 					</div>
@@ -116,13 +118,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Timing<span class="tsd-signature-symbol">(</span>counter<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, callback<span class="tsd-signature-symbol">?: </span><a href="../interfaces/count.itimingcallback.html" class="tsd-signature-type">ITimingCallback</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="count.timing.html" class="tsd-signature-type">Timing</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Trace<wbr>Timing<span class="tsd-signature-symbol">(</span>correlationId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, component<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, operation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tracer<span class="tsd-signature-symbol">?: </span><a href="../interfaces/trace.itracer.html" class="tsd-signature-type">ITracer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="trace.tracetiming.html" class="tsd-signature-type">TraceTiming</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in count/Timing.ts:21</li>
+									<li>Defined in trace/TraceTiming.ts:24</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -133,23 +135,34 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> counter: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>an associated counter name</p>
+											<p>(optional) transaction id to trace execution through call chain.</p>
 										</div>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> callback: <a href="../interfaces/count.itimingcallback.html" class="tsd-signature-type">ITimingCallback</a><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<h5>component: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>a callback that shall be called when endTiming is called.</p>
+											<p>an associated component name</p>
 										</div>
 									</div>
 								</li>
+								<li>
+									<h5>operation: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>an associated operation name</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> tracer: <a href="../interfaces/trace.itracer.html" class="tsd-signature-type">ITracer</a><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="count.timing.html" class="tsd-signature-type">Timing</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="trace.tracetiming.html" class="tsd-signature-type">TraceTiming</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -157,22 +170,54 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="endtiming" class="tsd-anchor"></a>
-					<h3>end<wbr>Timing</h3>
+					<a name="endfailure" class="tsd-anchor"></a>
+					<h3>end<wbr>Failure</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">end<wbr>Timing<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">end<wbr>Failure<span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in count/Timing.ts:39</li>
+									<li>Defined in trace/TraceTiming.ts:58</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Ends timing of a failed block, calculates elapsed time
+									and records the associated trace.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>error: <span class="tsd-signature-type">Error</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>an error object associated with this trace.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="endtrace" class="tsd-anchor"></a>
+					<h3>end<wbr>Trace</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">end<wbr>Trace<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in trace/TraceTiming.ts:46</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Ends timing of an execution block, calculates elapsed time
-									and updates the associated counter.</p>
+									and records the associated trace.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -205,7 +250,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/connect.html">connect</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/count.html">count</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -223,51 +268,51 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/test.html">test</a>
 					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/trace.html">trace</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/count.countertype.html" class="tsd-kind-icon">Counter<wbr>Type</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="trace.cachedtracer.html" class="tsd-kind-icon">Cached<wbr>Tracer</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="count.cachedcounters.html" class="tsd-kind-icon">Cached<wbr>Counters</a>
+						<a href="trace.compositetracer.html" class="tsd-kind-icon">Composite<wbr>Tracer</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="count.compositecounters.html" class="tsd-kind-icon">Composite<wbr>Counters</a>
+						<a href="trace.defaulttracerfactory.html" class="tsd-kind-icon">Default<wbr>Tracer<wbr>Factory</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="count.counter.html" class="tsd-kind-icon">Counter</a>
+						<a href="trace.logtracer.html" class="tsd-kind-icon">Log<wbr>Tracer</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="count.defaultcountersfactory.html" class="tsd-kind-icon">Default<wbr>Counters<wbr>Factory</a>
+						<a href="trace.nulltracer.html" class="tsd-kind-icon">Null<wbr>Tracer</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="count.logcounters.html" class="tsd-kind-icon">Log<wbr>Counters</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="count.nullcounters.html" class="tsd-kind-icon">Null<wbr>Counters</a>
+						<a href="trace.operationtrace.html" class="tsd-kind-icon">Operation<wbr>Trace</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="count.timing.html" class="tsd-kind-icon">Timing</a>
+						<a href="trace.tracetiming.html" class="tsd-kind-icon">Trace<wbr>Timing</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="count.timing.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="trace.tracetiming.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="count.timing.html#endtiming" class="tsd-kind-icon">end<wbr>Timing</a>
+								<a href="trace.tracetiming.html#endfailure" class="tsd-kind-icon">end<wbr>Failure</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="trace.tracetiming.html#endtrace" class="tsd-kind-icon">end<wbr>Trace</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/count.icounters.html" class="tsd-kind-icon">ICounters</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/count.itimingcallback.html" class="tsd-kind-icon">ITiming<wbr>Callback</a>
+						<a href="../interfaces/trace.itracer.html" class="tsd-kind-icon">ITracer</a>
 					</li>
 				</ul>
 			</nav>

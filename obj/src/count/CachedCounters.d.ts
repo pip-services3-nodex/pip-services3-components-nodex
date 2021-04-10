@@ -2,8 +2,8 @@
 import { IReconfigurable } from 'pip-services3-commons-nodex';
 import { ConfigParams } from 'pip-services3-commons-nodex';
 import { ICounters } from './ICounters';
-import { Timing } from './Timing';
-import { ITimingCallback } from './ITimingCallback';
+import { CounterTiming } from './CounterTiming';
+import { ICounterTimingCallback } from './ICounterTimingCallback';
 import { CounterType } from './CounterType';
 import { Counter } from './Counter';
 /**
@@ -18,7 +18,7 @@ import { Counter } from './Counter';
  *     - reset_timeout:   timeout in milliseconds to reset the counters. 0 disables the reset
  *     (default: 0)
  */
-export declare abstract class CachedCounters implements ICounters, IReconfigurable, ITimingCallback {
+export declare abstract class CachedCounters implements ICounters, IReconfigurable, ICounterTimingCallback {
     protected _interval: number;
     protected _resetTimeout: number;
     protected _cache: {
@@ -67,13 +67,13 @@ export declare abstract class CachedCounters implements ICounters, IReconfigurab
     clearAll(): void;
     /**
      * Begins measurement of execution time interval.
-     * It returns [[Timing]] object which has to be called at
-     * [[Timing.endTiming]] to end the measurement and update the counter.
+     * It returns [[CounterTiming]] object which has to be called at
+     * [[CounterTiming.endTiming]] to end the measurement and update the counter.
      *
      * @param name 	a counter name of Interval type.
-     * @returns a [[Timing]] callback object to end timing.
+     * @returns a [[CounterTiming]] callback object to end timing.
      */
-    beginTiming(name: string): Timing;
+    beginTiming(name: string): CounterTiming;
     /**
      * Dumps (saves) the current values of counters.
      *
@@ -111,7 +111,7 @@ export declare abstract class CachedCounters implements ICounters, IReconfigurab
      * @param name      a counter name
      * @param elapsed   execution elapsed time in milliseconds to update the counter.
      *
-     * @see [[Timing.endTiming]]
+     * @see [[CounterTiming.endTiming]]
      */
     endTiming(name: string, elapsed: number): void;
     /**

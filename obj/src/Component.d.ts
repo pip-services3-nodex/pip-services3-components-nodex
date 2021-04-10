@@ -10,6 +10,7 @@ import { IReferenceable } from 'pip-services3-commons-nodex';
 import { DependencyResolver } from 'pip-services3-commons-nodex';
 import { CompositeLogger } from './log/CompositeLogger';
 import { CompositeCounters } from './count/CompositeCounters';
+import { CompositeTracer } from './trace/CompositeTracer';
 /**
  * Abstract component that supportes configurable dependencies, logging
  * and performance counters.
@@ -25,12 +26,14 @@ import { CompositeCounters } from './count/CompositeCounters';
  *
  * - <code>\*:counters:\*:\*:1.0</code>     (optional) [[ICounters]] components to pass collected measurements
  * - <code>\*:logger:\*:\*:1.0</code>       (optional) [[ILogger]] components to pass log messages
+ * - <code>\*:tracer:\*:\*:1.0</code>       (optional) [[ITracer]] components to trace executed operations
  * - ...                                    References must match configured dependencies.
  */
 export declare class Component implements IConfigurable, IReferenceable {
     protected _dependencyResolver: DependencyResolver;
     protected _logger: CompositeLogger;
     protected _counters: CompositeCounters;
+    protected _tracer: CompositeTracer;
     /**
      * Configures component by passing configuration parameters.
      *

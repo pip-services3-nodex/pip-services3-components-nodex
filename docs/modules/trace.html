@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ITimingCallback | pip-services3-components-nodex</title>
+	<title>trace | pip-services3-components-nodex</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,13 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/count.html">count</a>
-				</li>
-				<li>
-					<a href="count.itimingcallback.html">ITimingCallback</a>
+					<a href="trace.html">trace</a>
 				</li>
 			</ul>
-			<h1>Interface ITimingCallback</h1>
+			<h1>External module trace</h1>
 		</div>
 	</div>
 </header>
@@ -69,88 +66,31 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Interface for a callback to end measurement of execution elapsed time.</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>see</dt>
-						<dd><p><a href="../classes/count.timing.html">Timing</a></p>
-						</dd>
-					</dl>
 				</div>
-			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="target">ITimingCallback</span>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implemented by</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../classes/count.cachedcounters.html" class="tsd-signature-type">CachedCounters</a></li>
-					<li><a href="../classes/count.compositecounters.html" class="tsd-signature-type">CompositeCounters</a></li>
-					<li><a href="../classes/count.logcounters.html" class="tsd-signature-type">LogCounters</a></li>
-				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Methods</h3>
+							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="count.itimingcallback.html#endtiming" class="tsd-kind-icon">end<wbr>Timing</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/trace.cachedtracer.html" class="tsd-kind-icon">Cached<wbr>Tracer</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/trace.compositetracer.html" class="tsd-kind-icon">Composite<wbr>Tracer</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/trace.defaulttracerfactory.html" class="tsd-kind-icon">Default<wbr>Tracer<wbr>Factory</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/trace.logtracer.html" class="tsd-kind-icon">Log<wbr>Tracer</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/trace.nulltracer.html" class="tsd-kind-icon">Null<wbr>Tracer</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/trace.operationtrace.html" class="tsd-kind-icon">Operation<wbr>Trace</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/trace.tracetiming.html" class="tsd-kind-icon">Trace<wbr>Timing</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/trace.itracer.html" class="tsd-kind-icon">ITracer</a></li>
 							</ul>
 						</section>
 					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="endtiming" class="tsd-anchor"></a>
-					<h3>end<wbr>Timing</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">end<wbr>Timing<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, elapsed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in count/ITimingCallback.ts:17</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Ends measurement of execution elapsed time and updates specified counter.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="../classes/count.timing.html#endtiming">Timing.endTiming</a></p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>name: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>a counter name</p>
-									</div>
-								</li>
-								<li>
-									<h5>elapsed: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>execution elapsed time in milliseconds to update the counter.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
 				</section>
 			</section>
 		</div>
@@ -161,84 +101,72 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/auth.html">auth</a>
+						<a href="auth.html">auth</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/build.html">build</a>
+						<a href="build.html">build</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/cache.html">cache</a>
+						<a href="cache.html">cache</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/component.html">component</a>
+						<a href="component.html">component</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/config.html">config</a>
+						<a href="config.html">config</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/connect.html">connect</a>
+						<a href="connect.html">connect</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="count.html">count</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="index.html">index</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="info.html">info</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="lock.html">lock</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="log.html">log</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="test.html">test</a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/count.html">count</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/index.html">index</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/info.html">info</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/lock.html">lock</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/log.html">log</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/test.html">test</a>
+						<a href="trace.html">trace</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/count.countertype.html" class="tsd-kind-icon">Counter<wbr>Type</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/trace.cachedtracer.html" class="tsd-kind-icon">Cached<wbr>Tracer</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/count.cachedcounters.html" class="tsd-kind-icon">Cached<wbr>Counters</a>
+						<a href="../classes/trace.compositetracer.html" class="tsd-kind-icon">Composite<wbr>Tracer</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/count.compositecounters.html" class="tsd-kind-icon">Composite<wbr>Counters</a>
+						<a href="../classes/trace.defaulttracerfactory.html" class="tsd-kind-icon">Default<wbr>Tracer<wbr>Factory</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/count.counter.html" class="tsd-kind-icon">Counter</a>
+						<a href="../classes/trace.logtracer.html" class="tsd-kind-icon">Log<wbr>Tracer</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/count.defaultcountersfactory.html" class="tsd-kind-icon">Default<wbr>Counters<wbr>Factory</a>
+						<a href="../classes/trace.nulltracer.html" class="tsd-kind-icon">Null<wbr>Tracer</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/count.logcounters.html" class="tsd-kind-icon">Log<wbr>Counters</a>
+						<a href="../classes/trace.operationtrace.html" class="tsd-kind-icon">Operation<wbr>Trace</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/count.nullcounters.html" class="tsd-kind-icon">Null<wbr>Counters</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/count.timing.html" class="tsd-kind-icon">Timing</a>
+						<a href="../classes/trace.tracetiming.html" class="tsd-kind-icon">Trace<wbr>Timing</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="count.icounters.html" class="tsd-kind-icon">ICounters</a>
+						<a href="../interfaces/trace.itracer.html" class="tsd-kind-icon">ITracer</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="count.itimingcallback.html" class="tsd-kind-icon">ITiming<wbr>Callback</a>
-						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="count.itimingcallback.html#endtiming" class="tsd-kind-icon">end<wbr>Timing</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CompositeCounters = void 0;
 const pip_services3_commons_nodex_1 = require("pip-services3-commons-nodex");
-const Timing_1 = require("./Timing");
+const CounterTiming_1 = require("./CounterTiming");
 /**
  * Aggregates all counters from component references under a single component.
  *
@@ -66,14 +66,14 @@ class CompositeCounters {
     }
     /**
      * Begins measurement of execution time interval.
-     * It returns [[Timing]] object which has to be called at
-     * [[Timing.endTiming]] to end the measurement and update the counter.
+     * It returns [[CounterTiming]] object which has to be called at
+     * [[CounterTiming.endTiming]] to end the measurement and update the counter.
      *
      * @param name 	a counter name of Interval type.
-     * @returns a [[Timing]] callback object to end timing.
+     * @returns a [[CounterTiming]] callback object to end timing.
      */
     beginTiming(name) {
-        return new Timing_1.Timing(name, this);
+        return new CounterTiming_1.CounterTiming(name, this);
     }
     /**
      * Ends measurement of execution elapsed time and updates specified counter.
@@ -81,7 +81,7 @@ class CompositeCounters {
      * @param name      a counter name
      * @param elapsed   execution elapsed time in milliseconds to update the counter.
      *
-     * @see [[Timing.endTiming]]
+     * @see [[CounterTiming.endTiming]]
      */
     endTiming(name, elapsed) {
         for (let i = 0; i < this._counters.length; i++) {

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DefaultCountersFactory = exports.Counter = exports.CounterType = exports.CompositeCounters = exports.LogCounters = exports.NullCounters = exports.CachedCounters = exports.Timing = void 0;
+exports.DefaultCountersFactory = exports.Counter = exports.CounterType = exports.CompositeCounters = exports.LogCounters = exports.NullCounters = exports.CachedCounters = exports.CounterTiming = void 0;
 /**
  * @module count
  *
@@ -11,8 +11,8 @@ exports.DefaultCountersFactory = exports.Counter = exports.CounterType = exports
  * like: times called, response time, objects saved/processed. Using these numbers, we can
  * show how the code works in the system – how stable, fast, expandable it is.
  */
-var Timing_1 = require("./Timing");
-Object.defineProperty(exports, "Timing", { enumerable: true, get: function () { return Timing_1.Timing; } });
+var CounterTiming_1 = require("./CounterTiming");
+Object.defineProperty(exports, "CounterTiming", { enumerable: true, get: function () { return CounterTiming_1.CounterTiming; } });
 var CachedCounters_1 = require("./CachedCounters");
 Object.defineProperty(exports, "CachedCounters", { enumerable: true, get: function () { return CachedCounters_1.CachedCounters; } });
 var NullCounters_1 = require("./NullCounters");

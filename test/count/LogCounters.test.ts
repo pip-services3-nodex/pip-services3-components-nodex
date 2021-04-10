@@ -7,7 +7,7 @@ import { LogCounters } from '../../src/count/LogCounters';
 import { CounterType } from '../../src/count/CounterType';
 import { DefaultLoggerFactory } from '../../src/log/DefaultLoggerFactory';
 import { NullLogger } from '../../src/log/NullLogger';
-import { Timing } from '../../src/count/Timing';
+import { CounterTiming } from '../../src/count/CounterTiming';
 
 suite('LogCounters', ()=> {
     let _counters: LogCounters;
@@ -58,7 +58,7 @@ suite('LogCounters', ()=> {
     });    
 
     test('Measure Elapsed Time', (done) => {
-        let timer: Timing = _counters.beginTiming("Test.Elapsed");
+        let timer: CounterTiming = _counters.beginTiming("Test.Elapsed");
 
         setTimeout(function() {
             timer.endTiming();

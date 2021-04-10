@@ -1,5 +1,5 @@
 /** @module count */
-import { Timing } from './Timing';
+import { CounterTiming } from './CounterTiming';
 /**
  * Interface for performance counters that measure execution metrics.
  *
@@ -13,13 +13,13 @@ import { Timing } from './Timing';
 export interface ICounters {
     /**
      * Begins measurement of execution time interval.
-     * It returns [[Timing]] object which has to be called at
-     * [[Timing.endTiming]] to end the measurement and update the counter.
+     * It returns [[CounterTiming]] object which has to be called at
+     * [[CounterTiming.endTiming]] to end the measurement and update the counter.
      *
      * @param name 	a counter name of Interval type.
-     * @returns a [[Timing]] callback object to end timing.
+     * @returns a [[CounterTiming]] callback object to end timing.
      */
-    beginTiming(name: string): Timing;
+    beginTiming(name: string): CounterTiming;
     /**
      * Calculates min/average/max statistics based on the current and previous values.
      *

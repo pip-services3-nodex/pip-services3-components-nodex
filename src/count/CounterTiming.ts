@@ -1,5 +1,5 @@
 /** @module count */
-import { ITimingCallback } from './ITimingCallback';
+import { ICounterTimingCallback } from './ICounterTimingCallback';
 
 /**
  * Callback object returned by {@link ICounters.beginTiming} to end timing
@@ -15,9 +15,9 @@ import { ITimingCallback } from './ITimingCallback';
  *     }
  * 
  */
-export class Timing {
+export class CounterTiming {
 	private _start: number;
-	private _callback: ITimingCallback;
+	private _callback: ICounterTimingCallback;
 	private _counter: string;
 
 	/**
@@ -26,7 +26,7 @@ export class Timing {
 	 * @param counter 		an associated counter name
 	 * @param callback 		a callback that shall be called when endTiming is called.
 	 */
-	public constructor(counter: string = null, callback: ITimingCallback = null) {
+	public constructor(counter: string = null, callback: ICounterTimingCallback = null) {
 		this._counter = counter;
 		this._callback = callback;
 		this._start = new Date().getTime();

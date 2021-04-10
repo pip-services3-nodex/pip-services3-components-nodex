@@ -86,6 +86,7 @@
 					<ul>
 						<li><code>*:counters:*:*:1.0</code>     (optional) <a href="../interfaces/count.icounters.html">ICounters</a> components to pass collected measurements</li>
 						<li><code>*:logger:*:*:1.0</code>       (optional) <a href="../interfaces/log.ilogger.html">ILogger</a> components to pass log messages</li>
+						<li><code>*:tracer:*:*:1.0</code>       (optional) <a href="../interfaces/trace.itracer.html">ITracer</a> components to trace executed operations</li>
 						<li>...                                    References must match configured dependencies.</li>
 					</ul>
 				</div>
@@ -115,6 +116,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="component.component-1.html#_counters" class="tsd-kind-icon">_counters</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="component.component-1.html#_dependencyresolver" class="tsd-kind-icon">_dependency<wbr>Resolver</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="component.component-1.html#_logger" class="tsd-kind-icon">_logger</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="component.component-1.html#_tracer" class="tsd-kind-icon">_tracer</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -135,7 +137,7 @@
 					<div class="tsd-signature tsd-kind-icon">_counters<span class="tsd-signature-symbol">:</span> <a href="count.compositecounters.html" class="tsd-signature-type">CompositeCounters</a><span class="tsd-signature-symbol"> =&nbsp;new CompositeCounters()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Component.ts:34</li>
+							<li>Defined in Component.ts:36</li>
 						</ul>
 					</aside>
 				</section>
@@ -145,7 +147,7 @@
 					<div class="tsd-signature tsd-kind-icon">_dependency<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DependencyResolver</span><span class="tsd-signature-symbol"> =&nbsp;new DependencyResolver()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Component.ts:32</li>
+							<li>Defined in Component.ts:34</li>
 						</ul>
 					</aside>
 				</section>
@@ -155,7 +157,17 @@
 					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <a href="log.compositelogger.html" class="tsd-signature-type">CompositeLogger</a><span class="tsd-signature-symbol"> =&nbsp;new CompositeLogger()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Component.ts:33</li>
+							<li>Defined in Component.ts:35</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="_tracer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _tracer</h3>
+					<div class="tsd-signature tsd-kind-icon">_tracer<span class="tsd-signature-symbol">:</span> <a href="trace.compositetracer.html" class="tsd-signature-type">CompositeTracer</a><span class="tsd-signature-symbol"> =&nbsp;new CompositeTracer()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Component.ts:37</li>
 						</ul>
 					</aside>
 				</section>
@@ -172,7 +184,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Component.ts:41</li>
+									<li>Defined in Component.ts:44</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -203,7 +215,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Component.ts:51</li>
+									<li>Defined in Component.ts:54</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -268,6 +280,9 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/test.html">test</a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/trace.html">trace</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
@@ -285,6 +300,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="component.component-1.html#_logger" class="tsd-kind-icon">_logger</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="component.component-1.html#_tracer" class="tsd-kind-icon">_tracer</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="component.component-1.html#configure" class="tsd-kind-icon">configure</a>

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CachedCounters = void 0;
-const Timing_1 = require("./Timing");
+const CounterTiming_1 = require("./CounterTiming");
 const CounterType_1 = require("./CounterType");
 const Counter_1 = require("./Counter");
 /**
@@ -72,14 +72,14 @@ class CachedCounters {
     }
     /**
      * Begins measurement of execution time interval.
-     * It returns [[Timing]] object which has to be called at
-     * [[Timing.endTiming]] to end the measurement and update the counter.
+     * It returns [[CounterTiming]] object which has to be called at
+     * [[CounterTiming.endTiming]] to end the measurement and update the counter.
      *
      * @param name 	a counter name of Interval type.
-     * @returns a [[Timing]] callback object to end timing.
+     * @returns a [[CounterTiming]] callback object to end timing.
      */
     beginTiming(name) {
-        return new Timing_1.Timing(name, this);
+        return new CounterTiming_1.CounterTiming(name, this);
     }
     /**
      * Dumps (saves) the current values of counters.
@@ -172,7 +172,7 @@ class CachedCounters {
      * @param name      a counter name
      * @param elapsed   execution elapsed time in milliseconds to update the counter.
      *
-     * @see [[Timing.endTiming]]
+     * @see [[CounterTiming.endTiming]]
      */
     endTiming(name, elapsed) {
         let counter = this.get(name, CounterType_1.CounterType.Interval);

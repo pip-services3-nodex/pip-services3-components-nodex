@@ -4,8 +4,8 @@ import { IReferences } from 'pip-services3-commons-nodex';
 import { Descriptor } from 'pip-services3-commons-nodex';
 
 import { ICounters } from './ICounters';
-import { Timing } from './Timing';
-import { ITimingCallback } from './ITimingCallback';
+import { CounterTiming } from './CounterTiming';
+import { ICounterTimingCallback } from './ICounterTimingCallback';
 
 /**
  * Aggregates all counters from component references under a single component.
@@ -40,7 +40,7 @@ import { ITimingCallback } from './ITimingCallback';
  *     }
  * 
  */
-export class CompositeCounters implements ICounters, ITimingCallback, IReferenceable {
+export class CompositeCounters implements ICounters, ICounterTimingCallback, IReferenceable {
     protected readonly _counters: ICounters[] = [];
 
     /**
@@ -72,14 +72,14 @@ export class CompositeCounters implements ICounters, ITimingCallback, IReference
 
     /**
 	 * Begins measurement of execution time interval.
-	 * It returns [[Timing]] object which has to be called at
-	 * [[Timing.endTiming]] to end the measurement and update the counter.
+	 * It returns [[CounterTiming]] object which has to be called at
+	 * [[CounterTiming.endTiming]] to end the measurement and update the counter.
 	 * 
 	 * @param name 	a counter name of Interval type.
-	 * @returns a [[Timing]] callback object to end timing.
+	 * @returns a [[CounterTiming]] callback object to end timing.
      */
-    public beginTiming(name: string): Timing {
-        return new Timing(name, this);
+    public beginTiming(name: string): CounterTiming {
+        return new CounterTiming(name, this);
     }
 
     /**
@@ -88,12 +88,12 @@ export class CompositeCounters implements ICounters, ITimingCallback, IReference
      * @param name      a counter name
      * @param elapsed   execution elapsed time in milliseconds to update the counter.
      * 
-     * @see [[Timing.endTiming]]
+     * @see [[CounterTiming.endTiming]]
      */
     public endTiming(name: string, elapsed: number): void {
         for (let i = 0; i < this._counters.length; i++) {
             let counter: any = this._counters[i];
-            let callback = counter as ITimingCallback;
+            let callback = counter as ICounterTimingCallback;
             if (callback != null) {
                 callback.endTiming(name, elapsed);
             }
