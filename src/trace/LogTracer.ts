@@ -83,8 +83,11 @@ export class LogTracer implements IConfigurable, IReferenceable {
         }
 
         builder += component;
-        builder += ".";
-        builder += operation;
+
+        if (operation != null || operation != "") {
+            builder += ".";
+            builder += operation;
+        }
 
         if (duration > 0) {
             builder += " in " + duration + " msec";

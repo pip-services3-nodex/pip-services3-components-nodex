@@ -66,6 +66,16 @@ class CachedTracer {
      */
     write(correlationId, component, operation, error, duration) {
         let errorDesc = error != null ? pip_services3_commons_nodex_2.ErrorDescriptionFactory.create(error) : null;
+        // Account for cases when component and operation are combined in component.
+        if (operation == null || operation == "") {
+            if (component != null && component != "") {
+                let pos = component.lastIndexOf(".");
+                if (pos > 0) {
+                    operation = component.substring(pos + 1);
+                    component = component.substring(0, pos);
+                }
+            }
+        }
         let trace = {
             time: new Date(),
             source: this._source,

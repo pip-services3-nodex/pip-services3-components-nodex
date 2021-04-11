@@ -79,7 +79,19 @@ export abstract class CachedTracer implements ITracer, IReconfigurable, IReferen
      */
 	protected write(correlationId: string, component: string, operation: string, error: Error, duration: number): void {
 		let errorDesc: ErrorDescription = error != null ? ErrorDescriptionFactory.create(error) : null;
-		let trace: OperationTrace = <OperationTrace>{
+
+        // Account for cases when component and operation are combined in component.
+        if (operation == null || operation == "") {
+            if (component != null && component != "")  {
+                let pos = component.lastIndexOf(".");
+                if (pos > 0) {
+                    operation = component.substring(pos + 1);
+                    component = component.substring(0, pos);
+                }
+            } 
+        }
+
+        let trace: OperationTrace = <OperationTrace>{
             time: new Date(),
             source: this._source,
             component: component, 
