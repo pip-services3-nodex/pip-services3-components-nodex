@@ -6,6 +6,7 @@
  * @preferred
  */
  export { ITracer } from './ITracer';
+ export { TraceTiming } from './TraceTiming';
  export { NullTracer } from './NullTracer';
  export { CachedTracer } from './CachedTracer';
  export { LogTracer } from './LogTracer';

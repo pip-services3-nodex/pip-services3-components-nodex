@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DefaultTracerFactory = exports.OperationTrace = exports.CompositeTracer = exports.LogTracer = exports.CachedTracer = exports.NullTracer = void 0;
+exports.DefaultTracerFactory = exports.OperationTrace = exports.CompositeTracer = exports.LogTracer = exports.CachedTracer = exports.NullTracer = exports.TraceTiming = void 0;
+var TraceTiming_1 = require("./TraceTiming");
+Object.defineProperty(exports, "TraceTiming", { enumerable: true, get: function () { return TraceTiming_1.TraceTiming; } });
 var NullTracer_1 = require("./NullTracer");
 Object.defineProperty(exports, "NullTracer", { enumerable: true, get: function () { return NullTracer_1.NullTracer; } });
 var CachedTracer_1 = require("./CachedTracer");
