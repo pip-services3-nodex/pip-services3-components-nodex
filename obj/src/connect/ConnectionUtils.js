@@ -34,6 +34,26 @@ class ConnectionUtils {
         }
         return options;
     }
+    /**
+     * Renames property if the target name is not used.
+     *
+     * @param options configuration options
+     * @param fromName original property name.
+     * @param toName property name to rename to.
+     * @returns updated configuration options
+     */
+    static rename(options, fromName, toName) {
+        let fromValue = options.getAsObject(fromName);
+        if (fromValue == null)
+            return options;
+        let toValue = options.getAsObject(toName);
+        if (toValue != null)
+            return options;
+        options = pip_services3_commons_nodex_1.ConfigParams.fromValue(options);
+        options.setAsObject(toName, fromValue);
+        options.remove(fromName);
+        return options;
+    }
     static concatValues(value1, value2) {
         if (value1 == null || value1 == "")
             return value2;
@@ -98,6 +118,12 @@ class ConnectionUtils {
                 options.setAsObject("username", userAndPass);
             }
         }
+        pos = uri.indexOf("/");
+        if (pos > 0) {
+            let path = uri.substring(pos + 1);
+            uri = uri.substring(0, pos);
+            options.setAsObject("path", path);
+        }
         // Process host and ports
         // options.setAsObject("servers", this.concatValues(options.getAsString("servers"), uri));
         let servers = uri.split(",");
@@ -158,8 +184,12 @@ class ConnectionUtils {
             }
         }
         builder += servers;
+        let path = options.getAsNullableString("path");
+        if (path != null) {
+            builder += "/" + path;
+        }
         let params = "";
-        let reservedKeys = ["protocol", "host", "port", "username", "password", "servers"];
+        let reservedKeys = ["protocol", "host", "port", "username", "password", "servers", "path"];
         for (let key of options.getKeys()) {
             if (reservedKeys.indexOf(key) >= 0) {
                 continue;

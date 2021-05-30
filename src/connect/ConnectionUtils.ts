@@ -33,6 +33,27 @@ export class ConnectionUtils {
         return options;
     }
 
+    /**
+     * Renames property if the target name is not used.
+     * 
+     * @param options configuration options
+     * @param fromName original property name.
+     * @param toName property name to rename to.
+     * @returns updated configuration options
+     */
+    public static rename(options: ConfigParams, fromName: string, toName: string): ConfigParams {
+        let fromValue = options.getAsObject(fromName);
+        if (fromValue == null) return options;
+
+        let toValue = options.getAsObject(toName);
+        if (toValue != null) return options;
+
+        options = ConfigParams.fromValue(options);
+        options.setAsObject(toName, fromValue);
+        options.remove(fromName);
+        return options;
+    }
+
     private static concatValues(value1: string, value2: string): string {
         if (value1 == null || value1 == "") return value2;
         if (value2 == null || value2 == "") return value1;
@@ -98,6 +119,13 @@ export class ConnectionUtils {
             } else {
                 options.setAsObject("username", userAndPass);
             }
+        }
+
+        pos = uri.indexOf("/");
+        if (pos > 0) {
+            let path = uri.substring(pos + 1);
+            uri = uri.substring(0, pos);
+            options.setAsObject("path", path);
         }
 
         // Process host and ports
@@ -167,8 +195,13 @@ export class ConnectionUtils {
         }
         builder += servers;
 
+        let path = options.getAsNullableString("path");
+        if (path != null) {
+            builder += "/" + path;
+        }
+
         let params = "";
-        let reservedKeys = ["protocol", "host", "port", "username", "password", "servers"];
+        let reservedKeys = ["protocol", "host", "port", "username", "password", "servers", "path"];
         for (let key of options.getKeys()) {
             if (reservedKeys.indexOf(key) >= 0) {
                 continue;

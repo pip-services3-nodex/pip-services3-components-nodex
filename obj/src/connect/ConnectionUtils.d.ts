@@ -10,6 +10,15 @@ export declare class ConnectionUtils {
      * @param keys when define it limits only to specific keys
      */
     static concat(options1: ConfigParams, options2: ConfigParams, ...keys: string[]): ConfigParams;
+    /**
+     * Renames property if the target name is not used.
+     *
+     * @param options configuration options
+     * @param fromName original property name.
+     * @param toName property name to rename to.
+     * @returns updated configuration options
+     */
+    static rename(options: ConfigParams, fromName: string, toName: string): ConfigParams;
     private static concatValues;
     /**
      * Parses URI into config parameters.
