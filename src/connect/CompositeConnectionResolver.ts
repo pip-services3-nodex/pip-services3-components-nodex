@@ -97,12 +97,10 @@ export class CompositeConnectionResolver implements IReferenceable, IConfigurabl
      * @returns resolved options.
      */
      public async resolve(correlationId: string): Promise<ConfigParams> {
-        let connections: ConnectionParams[];
-        let credential: CredentialParams;
-
-        await Promise.all([
-            async () => {
-                connections = await this._connectionResolver.resolveAll(correlationId);
+        // Todo: Why Promise.all returns promises instead of resolved values??
+        // let [connections, credential] = await Promise.all([
+        //     async () => {
+                let connections = await this._connectionResolver.resolveAll(correlationId);
                 connections = connections || [];
 
                 // Validate if cluster (multiple connections) is supported
@@ -117,15 +115,19 @@ export class CompositeConnectionResolver implements IReferenceable, IConfigurabl
                 for (let connection of connections) {
                     this.validateConnection(correlationId, connection);
                 }
-            },
-            async () => {
-                credential = await this._credentialResolver.lookup(correlationId);
+
+            //     return connections;
+            // },
+            // async () => {
+                let credential = await this._credentialResolver.lookup(correlationId);
                 credential = credential || new CredentialParams();
 
                 // Validate credential
                 this.validateCredential(correlationId, credential);
-            }
-        ]);
+
+        //         return credential;
+        //     }
+        // ]);
 
         return this.composeOptions(connections, credential, this._options);
     }

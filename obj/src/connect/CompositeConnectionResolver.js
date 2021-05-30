@@ -92,27 +92,28 @@ class CompositeConnectionResolver {
      */
     resolve(correlationId) {
         return __awaiter(this, void 0, void 0, function* () {
-            let connections;
-            let credential;
-            yield Promise.all([
-                () => __awaiter(this, void 0, void 0, function* () {
-                    connections = yield this._connectionResolver.resolveAll(correlationId);
-                    connections = connections || [];
-                    // Validate if cluster (multiple connections) is supported
-                    if (connections.length > 0 && !this._clusterSupported) {
-                        throw new pip_services3_commons_nodex_2.ConfigException(correlationId, "MULTIPLE_CONNECTIONS_NOT_SUPPORTED", "Multiple (cluster) connections are not supported");
-                    }
-                    for (let connection of connections) {
-                        this.validateConnection(correlationId, connection);
-                    }
-                }),
-                () => __awaiter(this, void 0, void 0, function* () {
-                    credential = yield this._credentialResolver.lookup(correlationId);
-                    credential = credential || new CredentialParams_1.CredentialParams();
-                    // Validate credential
-                    this.validateCredential(correlationId, credential);
-                })
-            ]);
+            // Todo: Why Promise.all returns promises instead of resolved values??
+            // let [connections, credential] = await Promise.all([
+            //     async () => {
+            let connections = yield this._connectionResolver.resolveAll(correlationId);
+            connections = connections || [];
+            // Validate if cluster (multiple connections) is supported
+            if (connections.length > 0 && !this._clusterSupported) {
+                throw new pip_services3_commons_nodex_2.ConfigException(correlationId, "MULTIPLE_CONNECTIONS_NOT_SUPPORTED", "Multiple (cluster) connections are not supported");
+            }
+            for (let connection of connections) {
+                this.validateConnection(correlationId, connection);
+            }
+            //     return connections;
+            // },
+            // async () => {
+            let credential = yield this._credentialResolver.lookup(correlationId);
+            credential = credential || new CredentialParams_1.CredentialParams();
+            // Validate credential
+            this.validateCredential(correlationId, credential);
+            //         return credential;
+            //     }
+            // ]);
             return this.composeOptions(connections, credential, this._options);
         });
     }
