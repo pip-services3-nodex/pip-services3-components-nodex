@@ -2,6 +2,7 @@
 import { ConfigParams } from 'pip-services3-commons-nodex';
 import { IConfigurable } from 'pip-services3-commons-nodex'
 import { MustacheTemplate } from 'pip-services3-expressions-nodex';
+import { IConfigReader } from './IConfigReader';
 
 /**
  * Abstract config reader that supports configuration parameterization.
@@ -13,7 +14,7 @@ import { MustacheTemplate } from 'pip-services3-expressions-nodex';
  * 
  *  @see [[IConfigReader]]
  */
-export abstract class ConfigReader implements IConfigurable {
+export abstract class ConfigReader implements IConfigurable, IConfigReader {
     private _parameters: ConfigParams = new ConfigParams();
 
     /**
