@@ -1,5 +1,6 @@
 /** @module config */
 import { ConfigParams } from 'pip-services3-commons-nodex';
+import { INotifiable } from 'pip-services3-commons-nodex';
 /**
  * Interface for configuration readers that retrieve configuration from various sources
  * and make it available for other components.
@@ -17,4 +18,14 @@ export interface IConfigReader {
      * @returns                 retrieved configuration parameters.
      */
     readConfig(correlationId: string, parameters: ConfigParams): Promise<ConfigParams>;
+    /**
+     * Adds a listener that will be notified when configuration is changed
+     * @param listener a listener to be added.
+     */
+    addChangeListener(listener: INotifiable): void;
+    /**
+     * Remove a previously added change listener.
+     * @param listener a listener to be removed.
+     */
+    removeChangeListener(listener: INotifiable): void;
 }

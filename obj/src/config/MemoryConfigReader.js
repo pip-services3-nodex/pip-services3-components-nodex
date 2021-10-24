@@ -81,6 +81,20 @@ class MemoryConfigReader {
             }
         });
     }
+    /**
+     * Adds a listener that will be notified when configuration is changed
+     * @param listener a listener to be added.
+     */
+    addChangeListener(listener) {
+        // Do nothing...
+    }
+    /**
+     * Remove a previously added change listener.
+     * @param listener a listener to be removed.
+     */
+    removeChangeListener(listener) {
+        // Do nothing...
+    }
 }
 exports.MemoryConfigReader = MemoryConfigReader;
 //# sourceMappingURL=MemoryConfigReader.js.map

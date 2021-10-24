@@ -1,6 +1,8 @@
 /** @module config */
 import { ConfigParams } from 'pip-services3-commons-nodex';
 import { IConfigurable } from 'pip-services3-commons-nodex';
+import { INotifiable } from 'pip-services3-commons-nodex';
+import { IConfigReader } from './IConfigReader';
 /**
  * Abstract config reader that supports configuration parameterization.
  *
@@ -11,7 +13,7 @@ import { IConfigurable } from 'pip-services3-commons-nodex';
  *
  *  @see [[IConfigReader]]
  */
-export declare abstract class ConfigReader implements IConfigurable {
+export declare abstract class ConfigReader implements IConfigurable, IConfigReader {
     private _parameters;
     /**
      * Creates a new instance of the config reader.
@@ -41,4 +43,14 @@ export declare abstract class ConfigReader implements IConfigurable {
      * @returns a parameterized configuration string.
      */
     protected parameterize(config: string, parameters: ConfigParams): string;
+    /**
+     * Adds a listener that will be notified when configuration is changed
+     * @param listener a listener to be added.
+     */
+    addChangeListener(listener: INotifiable): void;
+    /**
+     * Remove a previously added change listener.
+     * @param listener a listener to be removed.
+     */
+    removeChangeListener(listener: INotifiable): void;
 }

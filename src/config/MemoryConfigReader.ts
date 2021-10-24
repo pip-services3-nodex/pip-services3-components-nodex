@@ -1,6 +1,7 @@
 /** @module config */
 import { ConfigParams } from 'pip-services3-commons-nodex';
 import { IReconfigurable } from 'pip-services3-commons-nodex';
+import { INotifiable } from 'pip-services3-commons-nodex';
 import { MustacheTemplate } from 'pip-services3-expressions-nodex';
 
 import { IConfigReader } from './IConfigReader';
@@ -73,4 +74,20 @@ export class MemoryConfigReader implements IConfigReader, IReconfigurable {
         }
     }
 
+    /**
+     * Adds a listener that will be notified when configuration is changed
+     * @param listener a listener to be added.
+     */
+    public addChangeListener(listener: INotifiable): void {
+        // Do nothing...
+    }
+
+     /**
+      * Remove a previously added change listener.
+      * @param listener a listener to be removed.
+      */
+    public removeChangeListener(listener: INotifiable): void {
+        // Do nothing...
+    }
+ 
 }
