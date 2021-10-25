@@ -1,6 +1,18 @@
 # <img src="https://uploads-ssl.webflow.com/5ea5d3315186cf5ec60c3ee4/5edf1c94ce4c859f2b188094_logo.svg" alt="Pip.Services Logo" width="200"> <br/> Component definitions for Node.js / ES2017 Changelog
 
+## <a name="1.4.0"></a> 1.4.0 (2021-10-24) 
+
+Added state management components
+
+### Features
+* **state** Added IStateStore interface and StateValue class
+* **state** Added NullStateStore class
+* **trace** Added MemoryStateStore class
+* **trace** Added DefaultStateStoreFactory class
+
 ## <a name="1.2.0"></a> 1.2.0 (2021-04-09) 
+
+Added tracing components, that offer a combination of logging and counters for called operations.
 
 ### Features
 * **trace** Added NullTracer class

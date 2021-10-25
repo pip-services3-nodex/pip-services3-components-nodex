@@ -8,6 +8,7 @@ export * from './count';
 export * from './lock';
 export * from './log';
 export * from './info';
+export * from './state';
 export * from './trace';
 export * from './test';
 

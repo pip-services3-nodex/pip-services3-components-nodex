@@ -21,6 +21,7 @@ __exportStar(require("./count"), exports);
 __exportStar(require("./lock"), exports);
 __exportStar(require("./log"), exports);
 __exportStar(require("./info"), exports);
+__exportStar(require("./state"), exports);
 __exportStar(require("./trace"), exports);
 __exportStar(require("./test"), exports);
 var Component_1 = require("./Component");

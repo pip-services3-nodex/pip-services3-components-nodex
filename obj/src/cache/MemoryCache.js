@@ -64,7 +64,7 @@ class MemoryCache {
         let now = new Date().getTime();
         this._count = 0;
         // Cleanup obsolete entries and find the oldest
-        for (var prop in this._cache) {
+        for (let prop in this._cache) {
             let entry = this._cache[prop];
             // Remove obsolete entry
             if (entry.isExpired()) {
