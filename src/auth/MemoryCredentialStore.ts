@@ -1,5 +1,5 @@
 /** @module auth */
-import { ConfigParams } from 'pip-services3-commons-nodex';
+import { ConfigParams, StringValueMap } from 'pip-services3-commons-nodex';
 import { IReconfigurable } from 'pip-services3-commons-nodex';
 
 import { CredentialParams } from './CredentialParams';
@@ -35,7 +35,7 @@ import { ICredentialStore } from './ICredentialStore';
  *     // Result: user=jdoe;pass=pass123
  */
 export class MemoryCredentialStore implements ICredentialStore, IReconfigurable {
-    private _items: { [key: string]: CredentialParams } = {};
+    private _items: StringValueMap = new StringValueMap();
 
     /**
      * Creates a new instance of the credential store.
@@ -64,12 +64,12 @@ export class MemoryCredentialStore implements ICredentialStore, IReconfigurable 
      * @param config   configuration parameters to be read
      */
     public readCredentials(config: ConfigParams) {
-        this._items = {};
-        let keys = config.getKeys();
-        for (let index = 0; index < keys.length; index++) {
-            let key = keys[index];
-            let value = config.getAsString(key);
-            this._items[key] = CredentialParams.fromString(value);
+        this._items.clear();
+        let sections = config.getSectionNames();
+        for (let index = 0; index < sections.length; index++) {
+            let section = sections[index];
+            let value = config.getSection(section);
+            this._items.append(CredentialParams.fromTuples(section, value));
         }
     }
 
