@@ -200,7 +200,7 @@ export class CredentialParams extends ConfigParams {
         let credentials: ConfigParams = config.getSection("credentials");
 
         if (credentials.length() > 0) {
-            for (let section in credentials.getSectionNames()) {
+            for (let section of credentials.getSectionNames()) {
                 let credential: ConfigParams = credentials.getSection(section);
                 result.push(new CredentialParams(credential));
             }

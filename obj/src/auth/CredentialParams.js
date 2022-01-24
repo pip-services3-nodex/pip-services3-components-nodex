@@ -185,7 +185,7 @@ class CredentialParams extends pip_services3_commons_nodex_1.ConfigParams {
         let result = [];
         let credentials = config.getSection("credentials");
         if (credentials.length() > 0) {
-            for (let section in credentials.getSectionNames()) {
+            for (let section of credentials.getSectionNames()) {
                 let credential = credentials.getSection(section);
                 result.push(new CredentialParams(credential));
             }

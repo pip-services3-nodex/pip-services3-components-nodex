@@ -10,6 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MemoryCredentialStore = void 0;
+/** @module auth */
+const pip_services3_commons_nodex_1 = require("pip-services3-commons-nodex");
 const CredentialParams_1 = require("./CredentialParams");
 /**
  * Credential store that keeps credentials in memory.
@@ -47,7 +49,7 @@ class MemoryCredentialStore {
      * @param config    (optional) configuration with credential parameters.
      */
     constructor(config = null) {
-        this._items = {};
+        this._items = new pip_services3_commons_nodex_1.StringValueMap();
         if (config != null) {
             this.configure(config);
         }
@@ -67,12 +69,12 @@ class MemoryCredentialStore {
      * @param config   configuration parameters to be read
      */
     readCredentials(config) {
-        this._items = {};
-        let keys = config.getKeys();
-        for (let index = 0; index < keys.length; index++) {
-            let key = keys[index];
-            let value = config.getAsString(key);
-            this._items[key] = CredentialParams_1.CredentialParams.fromString(value);
+        this._items.clear();
+        let sections = config.getSectionNames();
+        for (let index = 0; index < sections.length; index++) {
+            let section = sections[index];
+            let value = config.getSection(section);
+            this._items.append(CredentialParams_1.CredentialParams.fromTuples(section, value));
         }
     }
     /**
