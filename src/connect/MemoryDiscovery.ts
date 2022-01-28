@@ -29,16 +29,16 @@ class DiscoveryItem {
  * ### Example ###
  * 
  *     let config = ConfigParams.fromTuples(
- *         "key1.host", "10.1.1.100",
- *         "key1.port", "8080",
- *         "key2.host", "10.1.1.100",
- *         "key2.port", "8082"
+ *         "connections.key1.host", "10.1.1.100",
+ *         "connections.key1.port", "8080",
+ *         "connections.key2.host", "10.1.1.101",
+ *         "connections.key2.port", "8082"
  *     );
  *     
  *     let discovery = new MemoryDiscovery();
- *     discovery.readConnections(config);
+ *     discovery.configure(config);
  *     
- *     let connection = await discovery.resolve("123", "key1");
+ *     let connection = await discovery.resolveOne("123", "key1");
  *     // Result: host=10.1.1.100;port=8080
  *     
  */
@@ -73,13 +73,19 @@ export class MemoryDiscovery implements IDiscovery, IReconfigurable {
      */
     public readConnections(config: ConfigParams) {
         this._items = [];
-        let keys = config.getKeys();
-        for (let key of keys) {
-            let value = config.getAsNullableString(key);
-            let item: DiscoveryItem = new DiscoveryItem();
-            item.key = key;
-            item.connection = ConnectionParams.fromString(value);
-            this._items.push(item);
+        let connections: ConfigParams = config.getSection("connections");
+
+        if (connections.length() > 0) {
+            let connectionSections: string[] = connections.getSectionNames();
+            for (let index = 0; index < connectionSections.length; index++) {
+                let key = connectionSections[index]
+                let value: ConfigParams = connections.getSection(key);
+
+                let item: DiscoveryItem = new DiscoveryItem();
+                item.key = key;
+                item.connection = new ConnectionParams(value);
+                this._items.push(item);
+            }
         }
     }
 

@@ -91,16 +91,16 @@
 						<dd><p><a href="connect.connectionparams.html">ConnectionParams</a></p>
 							<h3 id="example">Example</h3>
 							<pre><code><span class="hljs-keyword">let</span> <span class="hljs-attr">config</span> = ConfigParams.fromTuples(
-    <span class="hljs-string">"key1.host"</span>, <span class="hljs-string">"10.1.1.100"</span>,
-    <span class="hljs-string">"key1.port"</span>, <span class="hljs-string">"8080"</span>,
-    <span class="hljs-string">"key2.host"</span>, <span class="hljs-string">"10.1.1.100"</span>,
-    <span class="hljs-string">"key2.port"</span>, <span class="hljs-string">"8082"</span>
+    <span class="hljs-string">"connections.key1.host"</span>, <span class="hljs-string">"10.1.1.100"</span>,
+    <span class="hljs-string">"connections.key1.port"</span>, <span class="hljs-string">"8080"</span>,
+    <span class="hljs-string">"connections.key2.host"</span>, <span class="hljs-string">"10.1.1.101"</span>,
+    <span class="hljs-string">"connections.key2.port"</span>, <span class="hljs-string">"8082"</span>
 );
 
 <span class="hljs-keyword">let</span> <span class="hljs-attr">discovery</span> = new MemoryDiscovery();
-discovery.readConnections(config);
+discovery.configure(config);
 
-<span class="hljs-keyword">let</span> <span class="hljs-attr">connection</span> = await discovery.resolve(<span class="hljs-string">"123"</span>, <span class="hljs-string">"key1"</span>);
+<span class="hljs-keyword">let</span> <span class="hljs-attr">connection</span> = await discovery.resolveOne(<span class="hljs-string">"123"</span>, <span class="hljs-string">"key1"</span>);
 // Result: <span class="hljs-attr">host=10.1.1.100;port=8080</span>
 </code></pre></dd>
 					</dl>
@@ -256,7 +256,7 @@ discovery.readConnections(config);
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/connect.idiscovery.html">IDiscovery</a>.<a href="../interfaces/connect.idiscovery.html#register">register</a></p>
 								<ul>
-									<li>Defined in connect/MemoryDiscovery.ts:94</li>
+									<li>Defined in connect/MemoryDiscovery.ts:100</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -298,7 +298,7 @@ discovery.readConnections(config);
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/connect.idiscovery.html">IDiscovery</a>.<a href="../interfaces/connect.idiscovery.html#resolveall">resolveAll</a></p>
 								<ul>
-									<li>Defined in connect/MemoryDiscovery.ts:127</li>
+									<li>Defined in connect/MemoryDiscovery.ts:133</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -337,7 +337,7 @@ discovery.readConnections(config);
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/connect.idiscovery.html">IDiscovery</a>.<a href="../interfaces/connect.idiscovery.html#resolveone">resolveOne</a></p>
 								<ul>
-									<li>Defined in connect/MemoryDiscovery.ts:109</li>
+									<li>Defined in connect/MemoryDiscovery.ts:115</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
