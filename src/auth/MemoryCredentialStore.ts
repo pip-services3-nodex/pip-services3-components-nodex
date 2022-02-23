@@ -96,6 +96,11 @@ export class MemoryCredentialStore implements ICredentialStore, IReconfigurable 
      * @param callback          callback function that receives found credential parameters or error.
      */
     public async lookup(correlationId: string, key: string): Promise<CredentialParams> {
-        return this._items[key];
+        if (typeof this._items[key] === 'string' || this._items[key] instanceof String) {
+            return CredentialParams.fromString(this._items[key]);
+        }
+
+        return this._items[key]
+
     }
 }

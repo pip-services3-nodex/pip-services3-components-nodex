@@ -103,6 +103,9 @@ class MemoryCredentialStore {
      */
     lookup(correlationId, key) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (typeof this._items[key] === 'string' || this._items[key] instanceof String) {
+                return CredentialParams_1.CredentialParams.fromString(this._items[key]);
+            }
             return this._items[key];
         });
     }
