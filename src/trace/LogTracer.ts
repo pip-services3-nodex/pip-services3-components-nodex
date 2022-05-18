@@ -8,6 +8,7 @@ import { TraceTiming } from './TraceTiming';
 import { CompositeLogger } from '../log/CompositeLogger';
 import { LogLevel } from '../log/LogLevel';
 import { LogLevelConverter } from '../log/LogLevelConverter';
+import { ITracer } from './ITracer';
 
 /**
  * Tracer that dumps recorded traces to logger.
@@ -42,7 +43,7 @@ import { LogLevelConverter } from '../log/LogLevelConverter';
  *     }
  *     
  */
-export class LogTracer implements IConfigurable, IReferenceable {
+export class LogTracer implements IConfigurable, IReferenceable, ITracer {
     private readonly _logger: CompositeLogger = new CompositeLogger();
     private _logLevel: LogLevel = LogLevel.Debug;
 
@@ -84,7 +85,7 @@ export class LogTracer implements IConfigurable, IReferenceable {
 
         builder += component;
 
-        if (operation != null || operation != "") {
+        if (operation != null && operation != "") {
             builder += ".";
             builder += operation;
         }
