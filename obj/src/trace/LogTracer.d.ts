@@ -4,6 +4,7 @@ import { ConfigParams } from 'pip-services3-commons-nodex';
 import { IReferenceable } from 'pip-services3-commons-nodex';
 import { IReferences } from 'pip-services3-commons-nodex';
 import { TraceTiming } from './TraceTiming';
+import { ITracer } from './ITracer';
 /**
  * Tracer that dumps recorded traces to logger.
  *
@@ -37,7 +38,7 @@ import { TraceTiming } from './TraceTiming';
  *     }
  *
  */
-export declare class LogTracer implements IConfigurable, IReferenceable {
+export declare class LogTracer implements IConfigurable, IReferenceable, ITracer {
     private readonly _logger;
     private _logLevel;
     /**

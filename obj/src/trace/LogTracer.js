@@ -72,7 +72,7 @@ class LogTracer {
             builder += "Executed ";
         }
         builder += component;
-        if (operation != null || operation != "") {
+        if (operation != null && operation != "") {
             builder += ".";
             builder += operation;
         }

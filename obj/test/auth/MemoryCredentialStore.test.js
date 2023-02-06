@@ -16,17 +16,17 @@ const src_1 = require("../../src");
 suite('MemoryCredentialStore', () => {
     test('Lookup and store test', () => __awaiter(void 0, void 0, void 0, function* () {
         let config = pip_services3_commons_nodex_1.ConfigParams.fromTuples('key1.user', 'user1', 'key1.pass', 'pass1', 'key2.user', 'user2', 'key2.pass', 'pass2');
-        let credentialStrore = new src_1.MemoryCredentialStore();
-        credentialStrore.readCredentials(config);
-        let cred1 = yield credentialStrore.lookup('123', 'key1');
-        let cred2 = yield credentialStrore.lookup('123', 'key2');
+        let credentialStore = new src_1.MemoryCredentialStore();
+        credentialStore.readCredentials(config);
+        let cred1 = yield credentialStore.lookup('123', 'key1');
+        let cred2 = yield credentialStore.lookup('123', 'key2');
         assert.equal(cred1.getUsername(), "user1");
         assert.equal(cred1.getPassword(), "pass1");
         assert.equal(cred2.getUsername(), "user2");
         assert.equal(cred2.getPassword(), "pass2");
         let credConfig = CredentialParams_1.CredentialParams.fromTuples('user', 'user3', 'pass', 'pass3', 'access_id', '123');
-        yield credentialStrore.store(null, 'key3', credConfig);
-        let cred3 = yield credentialStrore.lookup('123', 'key3');
+        yield credentialStore.store(null, 'key3', credConfig);
+        let cred3 = yield credentialStore.lookup('123', 'key3');
         assert.equal(cred3.getUsername(), "user3");
         assert.equal(cred3.getPassword(), "pass3");
         assert.equal(cred3.getAccessId(), "123");
