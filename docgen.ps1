@@ -5,7 +5,9 @@ $ErrorActionPreference = "Stop"
 
 # Get component metadata and set necessary variables
 $component = Get-Content -Path "$PSScriptRoot/component.json" | ConvertFrom-Json
-$docsImage = "$($component.registry)/$($component.name):$($component.version)-$($component.build)-docs"
+$imageName = If ([bool]$component.psobject.Properties["product"] -and $component.product -ne "") `
+                {"$($component.product)-$($component.name)"} Else {"$($component.name)"}
+$docsImage = "$($component.registry)/$imageName`:$($component.version)-$($component.build)-docs"
 $container=$component.name
 
 # Remove documentation files

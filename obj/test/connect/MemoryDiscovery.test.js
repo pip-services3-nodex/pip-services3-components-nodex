@@ -14,10 +14,10 @@ const pip_services3_commons_nodex_1 = require("pip-services3-commons-nodex");
 const ConnectionParams_1 = require("../../src/connect/ConnectionParams");
 const MemoryDiscovery_1 = require("../../src/connect/MemoryDiscovery");
 suite('MemoryDiscovery', () => {
-    let config = pip_services3_commons_nodex_1.ConfigParams.fromTuples("connections.key1.host", "10.1.1.100", "connections.key1.port", "8080", "connections.key2.host", "10.1.1.101", "connections.key2.port", "8082");
+    let config = pip_services3_commons_nodex_1.ConfigParams.fromTuples("key1.host", "10.1.1.100", "key1.port", "8080", "key2.host", "10.1.1.101", "key2.port", "8082");
     test('Resolve connections', () => __awaiter(void 0, void 0, void 0, function* () {
         let discovery = new MemoryDiscovery_1.MemoryDiscovery();
-        discovery.configure(config);
+        discovery.readConnections(config);
         // Resolve one
         let connection = yield discovery.resolveOne("123", "key1");
         assert.equal("10.1.1.100", connection.getHost());

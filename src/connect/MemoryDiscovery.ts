@@ -29,10 +29,10 @@ class DiscoveryItem {
  * ### Example ###
  * 
  *     let config = ConfigParams.fromTuples(
- *         "connections.key1.host", "10.1.1.100",
- *         "connections.key1.port", "8080",
- *         "connections.key2.host", "10.1.1.101",
- *         "connections.key2.port", "8082"
+ *         "key1.host", "10.1.1.100",
+ *         "key1.port", "8080",
+ *         "key2.host", "10.1.1.100",
+ *         "key2.port", "8082"
  *     );
  *     
  *     let discovery = new MemoryDiscovery();
@@ -43,7 +43,7 @@ class DiscoveryItem {
  *     
  */
 export class MemoryDiscovery implements IDiscovery, IReconfigurable {
-    private _items: DiscoveryItem[] = [];
+    protected _items: Map<string, ConnectionParams[]> = new Map();
 
     /**
      * Creates a new instance of discovery service.
@@ -52,7 +52,7 @@ export class MemoryDiscovery implements IDiscovery, IReconfigurable {
      */
     public constructor(config: ConfigParams = null) {
         if (config != null) {
-            this.configure(config);
+            this.readConnections(config);
         }
     }
 
@@ -62,7 +62,6 @@ export class MemoryDiscovery implements IDiscovery, IReconfigurable {
      * @param config    configuration parameters to be set.
      */
     public configure(config: ConfigParams): void {
-        this.readConnections(config);
     }
 
     /**
@@ -72,19 +71,17 @@ export class MemoryDiscovery implements IDiscovery, IReconfigurable {
      * @param config   configuration parameters to be read
      */
     public readConnections(config: ConfigParams) {
-        this._items = [];
-        let connections: ConfigParams = config.getSection("connections");
+        this._items.clear();
 
-        if (connections.length() > 0) {
-            let connectionSections: string[] = connections.getSectionNames();
+        if (config.length() > 0) {
+            let connectionSections: string[] = config.getSectionNames();
             for (let index = 0; index < connectionSections.length; index++) {
                 let key = connectionSections[index]
-                let value: ConfigParams = connections.getSection(key);
+                let value: ConfigParams = config.getSection(key);
 
-                let item: DiscoveryItem = new DiscoveryItem();
-                item.key = key;
-                item.connection = new ConnectionParams(value);
-                this._items.push(item);
+                let connectionsList = this._items.get(key) ?? [];
+                connectionsList.push(new ConnectionParams(value));
+                this._items.set(key, connectionsList);
             }
         }
     }
@@ -98,10 +95,10 @@ export class MemoryDiscovery implements IDiscovery, IReconfigurable {
      * @returns 			    the registered connection parameters.
      */
     public async register(correlationId: string, key: string, connection: ConnectionParams): Promise<ConnectionParams> {
-        let item: DiscoveryItem = new DiscoveryItem();
-        item.key = key;
-        item.connection = connection;
-        this._items.push(item);
+        let connectionsList = this._items.get(key) ?? [];
+        connectionsList.push(new ConnectionParams(connection));
+        this._items.set(key, connectionsList);
+
         return connection;
     }
 
@@ -114,12 +111,11 @@ export class MemoryDiscovery implements IDiscovery, IReconfigurable {
      */
     public async resolveOne(correlationId: string, key: string): Promise<ConnectionParams> {
         let connection: ConnectionParams = null;
-        for (let item of this._items) {
-            if (item.key == key && item.connection != null) {
-                connection = item.connection;
-                break;
-            }
-        }
+        let connections = this._items.get(key) ?? [];
+        
+        if (connections.length > 0) 
+            connection = connections[0];
+
         return connection;
     }
 
@@ -131,12 +127,8 @@ export class MemoryDiscovery implements IDiscovery, IReconfigurable {
      * @returns                 all found connection parameters
      */
     public async resolveAll(correlationId: string, key: string): Promise<ConnectionParams[]> {
-        let connections: ConnectionParams[] = [];
-        for (let item of this._items) {
-            if (item.key == key && item.connection != null) {
-                connections.push(item.connection);
-            }
-        }
-        return connections;
+        let connections: ConnectionParams[] = this._items.get(key) ?? [];
+        
+        return connections.filter(c => c != null);
     }
 }

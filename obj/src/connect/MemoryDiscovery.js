@@ -32,16 +32,16 @@ class DiscoveryItem {
  * ### Example ###
  *
  *     let config = ConfigParams.fromTuples(
- *         "connections.key1.host", "10.1.1.100",
- *         "connections.key1.port", "8080",
- *         "connections.key2.host", "10.1.1.101",
- *         "connections.key2.port", "8082"
+ *         "key1.host", "10.1.1.100",
+ *         "key1.port", "8080",
+ *         "key2.host", "10.1.1.100",
+ *         "key2.port", "8082"
  *     );
  *
  *     let discovery = new MemoryDiscovery();
- *     discovery.configure(config);
+ *     discovery.readConnections(config);
  *
- *     let connection = await discovery.resolveOne("123", "key1");
+ *     let connection = await discovery.resolve("123", "key1");
  *     // Result: host=10.1.1.100;port=8080
  *
  */
@@ -52,9 +52,9 @@ class MemoryDiscovery {
      * @param config    (optional) configuration with connection parameters.
      */
     constructor(config = null) {
-        this._items = [];
+        this._items = new Map();
         if (config != null) {
-            this.configure(config);
+            this.readConnections(config);
         }
     }
     /**
@@ -63,7 +63,6 @@ class MemoryDiscovery {
      * @param config    configuration parameters to be set.
      */
     configure(config) {
-        this.readConnections(config);
     }
     /**
      * Reads connections from configuration parameters.
@@ -72,17 +71,16 @@ class MemoryDiscovery {
      * @param config   configuration parameters to be read
      */
     readConnections(config) {
-        this._items = [];
-        let connections = config.getSection("connections");
-        if (connections.length() > 0) {
-            let connectionSections = connections.getSectionNames();
+        var _a;
+        this._items.clear();
+        if (config.length() > 0) {
+            let connectionSections = config.getSectionNames();
             for (let index = 0; index < connectionSections.length; index++) {
                 let key = connectionSections[index];
-                let value = connections.getSection(key);
-                let item = new DiscoveryItem();
-                item.key = key;
-                item.connection = new ConnectionParams_1.ConnectionParams(value);
-                this._items.push(item);
+                let value = config.getSection(key);
+                let connectionsList = (_a = this._items.get(key)) !== null && _a !== void 0 ? _a : [];
+                connectionsList.push(new ConnectionParams_1.ConnectionParams(value));
+                this._items.set(key, connectionsList);
             }
         }
     }
@@ -95,11 +93,11 @@ class MemoryDiscovery {
      * @returns 			    the registered connection parameters.
      */
     register(correlationId, key, connection) {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
-            let item = new DiscoveryItem();
-            item.key = key;
-            item.connection = connection;
-            this._items.push(item);
+            let connectionsList = (_a = this._items.get(key)) !== null && _a !== void 0 ? _a : [];
+            connectionsList.push(new ConnectionParams_1.ConnectionParams(connection));
+            this._items.set(key, connectionsList);
             return connection;
         });
     }
@@ -111,14 +109,12 @@ class MemoryDiscovery {
      * @returns                 a found connection parameters or <code>null</code> otherwise
      */
     resolveOne(correlationId, key) {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
             let connection = null;
-            for (let item of this._items) {
-                if (item.key == key && item.connection != null) {
-                    connection = item.connection;
-                    break;
-                }
-            }
+            let connections = (_a = this._items.get(key)) !== null && _a !== void 0 ? _a : [];
+            if (connections.length > 0)
+                connection = connections[0];
             return connection;
         });
     }
@@ -130,14 +126,10 @@ class MemoryDiscovery {
      * @returns                 all found connection parameters
      */
     resolveAll(correlationId, key) {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
-            let connections = [];
-            for (let item of this._items) {
-                if (item.key == key && item.connection != null) {
-                    connections.push(item.connection);
-                }
-            }
-            return connections;
+            let connections = (_a = this._items.get(key)) !== null && _a !== void 0 ? _a : [];
+            return connections.filter(c => c != null);
         });
     }
 }

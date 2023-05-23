@@ -2,7 +2,7 @@
     "name":  "pip-services3-components-nodex",
     "type": "module",
     "language": "node",
-    "version": "1.4.2",
+    "version": "1.4.3",
     "build": 0,
     "registry": "pipservices",
     "artifacts": [

@@ -7,15 +7,15 @@ import { MemoryDiscovery } from '../../src/connect/MemoryDiscovery';
 
 suite('MemoryDiscovery', ()=> {
     let config = ConfigParams.fromTuples(
-        "connections.key1.host", "10.1.1.100",
-        "connections.key1.port", "8080",
-        "connections.key2.host", "10.1.1.101",
-        "connections.key2.port", "8082"
+        "key1.host", "10.1.1.100",
+        "key1.port", "8080",
+        "key2.host", "10.1.1.101",
+        "key2.port", "8082"
     );  
 
     test('Resolve connections', async () => {
         let discovery = new MemoryDiscovery();
-        discovery.configure(config);
+        discovery.readConnections(config);
 
         // Resolve one
         let connection = await discovery.resolveOne("123", "key1");
